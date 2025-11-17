@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { useCounterStore } from "./stores/counter";
+import SnakeGame from "./components/SnakeGame.vue";
 const counter = useCounterStore();
 </script>
 
@@ -7,7 +8,8 @@ const counter = useCounterStore();
   <h1 class="text-red-900 text-center text-4xl mt-4">
     Hello Vue {{ counter.count }}
   </h1>
-  <div class="flex justify-center gap-4 mt-4">
+
+  <div class="flex justify-center gap-4 my-4">
     <button class="btn btn-soft btn-primary" @click="counter.increment">
       Increment
     </button>
@@ -16,5 +18,7 @@ const counter = useCounterStore();
     </button>
     <button class="btn btn-soft" @click="counter.reset">Reset</button>
   </div>
+
+  <SnakeGame />
   <RouterView />
 </template>
