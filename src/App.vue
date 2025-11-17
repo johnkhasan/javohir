@@ -1,7 +1,12 @@
 <script setup lang="ts">
 import { useCounterStore } from "./stores/counter";
 import SnakeGame from "./components/SnakeGame.vue";
+import { computed } from "vue";
 const counter = useCounterStore();
+
+const isMobile = computed(() => {
+  return screen.width <= 760;
+});
 </script>
 
 <template>
@@ -19,6 +24,7 @@ const counter = useCounterStore();
     <button class="btn btn-soft" @click="counter.reset">Reset</button>
   </div>
 
-  <SnakeGame />
+  <SnakeGame v-show="!isMobile" />
+
   <RouterView />
 </template>
