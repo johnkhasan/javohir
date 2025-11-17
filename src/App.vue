@@ -24,7 +24,9 @@ const isMobile = computed(() => {
     <button class="btn btn-soft" @click="counter.reset">Reset</button>
   </div>
 
-  <SnakeGame v-show="!isMobile" />
+  <template v-show="!isMobile">
+    <SnakeGame />
+  </template>
 
   <div v-show="!isMobile">Desktop</div>
   <div v-show="isMobile">Mobile</div>
