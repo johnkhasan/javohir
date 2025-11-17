@@ -26,5 +26,8 @@ const isMobile = computed(() => {
 
   <SnakeGame v-show="!isMobile" />
 
+  <div v-show="!isMobile">Desktop</div>
+  <div v-show="isMobile">Mobile</div>
+
   <RouterView />
 </template>
