@@ -23,13 +23,11 @@ const isMobile = computed(() => {
     </button>
     <button class="btn btn-soft" @click="counter.reset">Reset</button>
   </div>
+  <h1 class="skeleton skeleton-text">This is SKELETON</h1>
 
-  <template v-show="!isMobile">
+  <div v-show="!isMobile" class="flex justify-center">
     <SnakeGame />
-  </template>
-
-  <div v-show="!isMobile">Desktop</div>
-  <div v-show="isMobile">Mobile</div>
+  </div>
 
   <RouterView />
 </template>
