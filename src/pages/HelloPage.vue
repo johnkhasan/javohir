@@ -1,14 +1,14 @@
-<script setup lang="ts">
-
+<script setup>
+import { computed } from "vue";
+import SnakeGame from "@components/SnakeGame.vue";
+const isMobile = computed(() => {
+  return screen.width <= 760;
+});
 </script>
 <template>
-    <div class="text-4xl text-center text-green-800">
-        Home Page
-    </div>
+  <div v-show="!isMobile" class="flex justify-center">
+    <SnakeGame />
+  </div>
 </template>
 
-
-
-<style lang="scss" scoped>
-
-</style>
+<style lang="scss" scoped></style>

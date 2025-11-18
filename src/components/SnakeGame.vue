@@ -1,12 +1,11 @@
 <script setup>
 import { ref, onMounted, onBeforeUnmount } from "vue";
+import BackgroundBlur from "../assets/background-blur.svg";
 // skip snake game
 const skipGame = ref(false);
 const showSkipButton = ref(true);
 
 function handleArrow(e) {
-  console.log(e.key);
-
   switch (e.key) {
     case "ArrowUp":
       showSkipButton.value = false;
@@ -31,9 +30,10 @@ onMounted(() => {
 onBeforeUnmount(() => {
   window.removeEventListener("keydown", handleArrow);
 });
+
 let blockSize = 25;
 let total_row = 17;
-let total_col = 17;
+let total_col = 12;
 let board;
 let context;
 
@@ -194,24 +194,43 @@ function resetGame() {
 </script>
 
 <template>
-  <div class="relative" @keypress.left="showSkipButton = false">
-    <button
-      v-if="gameOver"
-      class="text-white btn btn-accent absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
-      @click="resetGame"
-    >
-      Restart
-    </button>
-    <button
-      v-show="showSkipButton"
-      v-if="!skipGame"
-      class="text-white btn btn-accent absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
-      @click="skipGame = true"
-    >
-      Skip
-    </button>
-    <canvas v-show="!skipGame" id="board"></canvas>
+  <div class="snake-game-wrapper">
+    <div class="relative snake-game">
+      <button
+        v-if="gameOver"
+        class="text-white z-10 btn btn-accent absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
+        @click="resetGame"
+      >
+        Restart
+      </button>
+      <button
+        v-show="showSkipButton"
+        v-if="!skipGame"
+        class="text-white z-10 btn btn-accent absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
+        @click="skipGame = true"
+      >
+        Skip
+      </button>
+      <div
+        v-show="showSkipButton"
+        v-if="!skipGame"
+        class="absolute left-1/2 bottom-12 -translate-x-1/2"
+      >
+        start-game
+      </div>
+      <canvas v-show="!skipGame" class="" id="board"></canvas>
+    </div>
   </div>
 </template>
 
-<style lang="scss" scoped></style>
+<style scoped>
+.snake-game-wrapper {
+  background-image: url("../assets/background-blur.svg");
+  background-size: 200%;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.snake-game {
+  height: 425px;
+}
+</style>

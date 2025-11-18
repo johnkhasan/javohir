@@ -1,13 +1,7 @@
 <template>
-    <div class="text-4xl text-center text-blue-500">
-        AboutMe Page
-    </div>
+  <div class="text-4xl text-center text-blue-500">AboutMe Page</div>
 </template>
 
-<script setup>
+<script setup></script>
 
-</script>
-
-<style lang="scss" scoped>
-
-</style>
+<style lang="scss" scoped></style>
