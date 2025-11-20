@@ -1,6 +1,10 @@
 <script setup>
 import { ref, onMounted, onBeforeUnmount } from "vue";
 import BackgroundBlur from "../assets/icons/background-blur.svg";
+import UpArrow from "../assets/icons/up-arrow.svg";
+import DownArrow from "../assets/icons/down-arrow.svg";
+import LeftArrow from "../assets/icons/left-arrow.svg";
+import RightArrow from "../assets/icons/right-arrow.svg";
 import { X } from "lucide-vue-next";
 // skip snake game
 const skipGame = ref(false);
@@ -239,26 +243,33 @@ function resetGame() {
 </script>
 
 <template>
-  <div class="border-line wrapper relative flex justify-around border-2 p-8">
+  <div class="border-line wrapper relative flex justify-between gap-10 border-2 p-8">
+    <!-- Top-left -->
     <div
-      class="dot-left-top dot absolute top-2 left-2 flex h-6 w-6 items-center justify-center rounded-full bg-transparent text-center text-2xl shadow-2xl drop-shadow-lg backdrop-blur-3xl"
+      class="dot-left-top dot absolute top-2 left-2 flex h-6 w-6 items-center justify-center rounded-full border border-white/20 bg-white/10 text-center text-2xl shadow-[0_4px_30px_rgba(0,0,0,0.1)] backdrop-blur-xl"
     >
-      <X size="20" color="red" class="bg-transparent" />
+      <X size="20" color="#ccc" />
     </div>
+
+    <!-- Top-right -->
     <div
-      class="dot-right-top dot absolute top-2 right-2 flex h-6 w-6 items-center justify-center rounded-full bg-transparent backdrop-blur-3xl"
+      class="dot-right-top dot absolute top-2 right-2 flex h-6 w-6 items-center justify-center rounded-full border border-white/20 bg-white/10 shadow-[0_4px_30px_rgba(0,0,0,0.1)] backdrop-blur-xl"
     >
-      <X size="20" color="red" class="bg-transparent" />
+      <X size="20" color="#ccc" />
     </div>
+
+    <!-- Bottom-left -->
     <div
-      class="dot-left-bottom dot absolute bottom-2 left-2 flex h-6 w-6 items-center justify-center rounded-full bg-transparent backdrop-blur-3xl"
+      class="dot-left-bottom dot absolute bottom-2 left-2 flex h-6 w-6 items-center justify-center rounded-full border border-white/20 bg-white/10 shadow-[0_4px_30px_rgba(0,0,0,0.1)] backdrop-blur-xl"
     >
-      <X size="20" color="red" class="bg-transparent" />
+      <X size="20" color="#cccccc" />
     </div>
+
+    <!-- Bottom-right -->
     <div
-      class="dot-right-bottom dot absolute right-2 bottom-2 flex h-6 w-6 items-center justify-center rounded-full bg-transparent backdrop-blur-3xl"
+      class="dot-right-bottom dot absolute right-2 bottom-2 flex h-6 w-6 items-center justify-center rounded-full border border-white/20 bg-white/10 shadow-[0_4px_30px_rgba(0,0,0,0.5)] backdrop-blur-xl"
     >
-      <X size="20" color="red" class="bg-transparent" />
+      <X size="20" color="#ccc" />
     </div>
 
     <div class="snake-game-left">
@@ -300,7 +311,28 @@ function resetGame() {
         class="back-blur absolute top-1/2 left-1/2 -z-10 -translate-x-1/2 -translate-y-1/2 blur-2xl"
       ></div>
     </div>
-    <div class="snake-game-right"></div>
+    <div class="snake-game-right">
+      <div class="game-console h-36 w-48 bg-gray-400 p-4">
+        <p class="text-sm text-white">// use keyboard</p>
+        <p class="text-sm text-white">// arrows to play</p>
+        <div class="console-btn flex flex-col items-center gap-1 mt-2">
+          <div class="console-btn-up">
+            <img :src="UpArrow" alt="" />
+          </div>
+          <div class="console-btn-downs flex gap-1">
+            <div>
+              <img :src="LeftArrow" alt="" />
+            </div>
+            <div>
+              <img :src="DownArrow" alt="" />
+            </div>
+            <div>
+              <img :src="RightArrow" alt="" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -315,17 +347,21 @@ function resetGame() {
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(64px);
   -webkit-backdrop-filter: blur(6px);
-  background: linear-gradient(270deg, rgba(23, 85, 83, 1), rgba(67, 217, 173, 0.13));
+  background: linear-gradient(
+    175deg,
+    rgba(67, 217, 173, 0.2) 0%,
+    rgba(77, 91, 206, 0.2) 85%,
+    rgba(77, 91, 206, 0.2) 100%
+  );
   border: 2px solid rgba(12, 22, 22, 1);
 }
 .back-blur {
   background-image: url("../assets//icons/background-blur.svg");
-  background-size: 800px;
+  background-size: 1000px;
   background-position: center;
   background-repeat: no-repeat;
   width: 50vw;
   height: 50vh;
-  transform: rotate(-90deg);
 }
 
 .loader {
@@ -336,7 +372,16 @@ function resetGame() {
   border-radius: 50%;
   animation: spin 0.7s linear infinite;
 }
-
+.dot {
+  color: #1e2d3d2d;
+}
+.game-console {
+  background: rgba(255, 255, 255, 0.002);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(64px);
+  -webkit-backdrop-filter: blur(6px);
+}
 @keyframes spin {
   to {
     transform: rotate(360deg);
