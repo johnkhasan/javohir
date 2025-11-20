@@ -239,40 +239,39 @@ function resetGame() {
 </script>
 
 <template>
-  <div class="wrapper p-8 border-2 border-line flex justify-between relative">
+  <div class="border-line wrapper relative flex justify-around border-2 p-8">
     <div
-      class="dot dot-left-top w-6 h-6 rounded-full text-2xl text-center backdrop-blur-3xl flex justify-center items-center bg-transparent top-2 absolute left-2"
+      class="dot-left-top dot absolute top-2 left-2 flex h-6 w-6 items-center justify-center rounded-full bg-transparent text-center text-2xl shadow-2xl drop-shadow-lg backdrop-blur-3xl"
     >
-      <X size="24" color="red" class="bg-transparent" />
+      <X size="20" color="red" class="bg-transparent" />
     </div>
     <div
-      class="dot dot-right-top w-12 h-12 rounded-full flex justify-center items-center bg-transparent top-0 absolute right-0"
+      class="dot-right-top dot absolute top-2 right-2 flex h-6 w-6 items-center justify-center rounded-full bg-transparent backdrop-blur-3xl"
     >
-      <!-- <img :src="xIcon" class="w-4" /> -->
-      <X size="24" color="red" class="bg-transparent" />
+      <X size="20" color="red" class="bg-transparent" />
     </div>
     <div
-      class="dot dot-left-bottom w-12 h-12 rounded-full flex justify-center items-center bg-transparent bottom-0 absolute left-0"
+      class="dot-left-bottom dot absolute bottom-2 left-2 flex h-6 w-6 items-center justify-center rounded-full bg-transparent backdrop-blur-3xl"
     >
-      <!-- <img :src="xIcon" class="w-4" /> -->
+      <X size="20" color="red" class="bg-transparent" />
     </div>
     <div
-      class="dot dot-right-bottom w-12 h-12 rounded-full flex justify-center items-center bg-transparent bottom-0 absolute right-0"
+      class="dot-right-bottom dot absolute right-2 bottom-2 flex h-6 w-6 items-center justify-center rounded-full bg-transparent backdrop-blur-3xl"
     >
-      <!-- <img :src="xIcon" class="w-4" /> -->
+      <X size="20" color="red" class="bg-transparent" />
     </div>
 
-    <div class="snake-game-left self-start">
-      <div v-show="!skipGame" class="relative snake-game">
+    <div class="snake-game-left">
+      <div v-show="!skipGame" class="snake-game relative">
         <div
           v-if="isLoading"
-          class="loader-overlay absolute inset-0 flex items-center justify-center z-20 bg-primary-200 bg-opacity-90"
+          class="bg-primary-200 bg-opacity-90 loader-overlay absolute inset-0 z-20 flex items-center justify-center"
         >
           <div class="loader"></div>
         </div>
         <button
           v-if="gameOver"
-          class="text-white z-10 btn btn-accent bg-a absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
+          class="bg-a btn btn-accent absolute top-1/2 left-1/2 z-10 -translate-x-1/2 -translate-y-1/2 text-white"
           @click="resetGame"
         >
           Restart
@@ -280,7 +279,7 @@ function resetGame() {
         <button
           v-show="showSkipButton"
           v-if="!skipGame"
-          class="text-white z-10 btn btn-accent bg-a absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
+          class="bg-a btn btn-accent absolute top-1/2 left-1/2 z-10 -translate-x-1/2 -translate-y-1/2 text-white"
           @click="skipGame = true"
         >
           Skip
@@ -288,7 +287,7 @@ function resetGame() {
         <div
           v-show="showSkipButton"
           v-if="!skipGame"
-          class="absolute left-1/2 bottom-12 -translate-x-1/2 bg-accent-100 rounded-sm p-1"
+          class="bg-accent-100 absolute bottom-12 left-1/2 -translate-x-1/2 rounded-sm p-1"
         >
           start-game
         </div>
@@ -298,7 +297,7 @@ function resetGame() {
         </div>
       </div>
       <div
-        class="back-blur absolute -z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 blur-2xl"
+        class="back-blur absolute top-1/2 left-1/2 -z-10 -translate-x-1/2 -translate-y-1/2 blur-2xl"
       ></div>
     </div>
     <div class="snake-game-right"></div>
@@ -311,11 +310,13 @@ function resetGame() {
   display: flex;
   justify-content: center;
   /* From https://css.glass */
-  background: rgba(255, 255, 255, 0.038);
+  background: rgba(255, 255, 255, 0.002);
   border-radius: 16px;
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(6px);
+  backdrop-filter: blur(64px);
   -webkit-backdrop-filter: blur(6px);
+  background: linear-gradient(270deg, rgba(23, 85, 83, 1), rgba(67, 217, 173, 0.13));
+  border: 2px solid rgba(12, 22, 22, 1);
 }
 .back-blur {
   background-image: url("../assets//icons/background-blur.svg");
