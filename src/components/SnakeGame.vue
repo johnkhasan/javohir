@@ -1,9 +1,11 @@
 <script setup>
 import { ref, onMounted, onBeforeUnmount } from "vue";
-import BackgroundBlur from "../assets/background-blur.svg";
+import BackgroundBlur from "../assets/icons/background-blur.svg";
 // skip snake game
 const skipGame = ref(false);
 const showSkipButton = ref(true);
+let gameOver = ref(false);
+const isLoading = ref(false);
 
 function handleArrow(e) {
   switch (e.key) {
@@ -25,12 +27,67 @@ function handleArrow(e) {
 }
 
 onMounted(() => {
+  isLoading.value = true;
+
   window.addEventListener("keydown", handleArrow);
-});
-onBeforeUnmount(() => {
-  window.removeEventListener("keydown", handleArrow);
+
+  board = document.getElementById("board");
+  board.height = total_row * blockSize;
+  board.width = total_col * blockSize;
+  context = board.getContext("2d");
+
+  placeFood();
+  document.addEventListener("keyup", changeDirection);
+
+  // --- NEW SMOOTH GAME LOOP ---
+  let lastTime = 0;
+  let moveAccum = 0;
+  let snakeSpeed = 6; // ← sekin & silliq (katak/sek)
+
+  function gameLoop(timestamp) {
+    const deltaTime = timestamp - lastTime;
+    lastTime = timestamp;
+
+    moveAccum += deltaTime;
+    const moveInterval = 1000 / snakeSpeed;
+
+    // Faqat vaqt yetganda qadam tashlaydi (grid movement)
+    while (moveAccum >= moveInterval) {
+      update();
+      moveAccum -= moveInterval;
+    }
+
+    // Doim chizamiz → silliq render
+    drawFrame();
+
+    requestAnimationFrame(gameLoop);
+  }
+
+  requestAnimationFrame(gameLoop);
 });
 
+onBeforeUnmount(() => {
+  window.removeEventListener("keydown", handleArrow);
+  document.removeEventListener("keyup", changeDirection);
+});
+
+function drawFrame() {
+  // Background
+  context.fillStyle = "#011627";
+  context.fillRect(0, 0, board.width, board.height);
+
+  // Food halo
+  drawFoodHalo(foodX + blockSize / 2, foodY + blockSize / 2, blockSize / 2);
+
+  // Snake head
+  drawSnakePart(snakeX, snakeY, 1);
+
+  // Snake body (fade tail)
+  for (let i = 0; i < snakeBody.length; i++) {
+    let opacity = getOpacity(i, snakeBody.length);
+    drawSnakePart(snakeBody[i][0], snakeBody[i][1], opacity);
+  }
+}
 let blockSize = 25;
 let total_row = 17;
 let total_col = 12;
@@ -48,24 +105,15 @@ let snakeBody = [];
 let foodX;
 let foodY;
 
-let gameOver = ref(false);
-
-window.onload = function () {
-  board = document.getElementById("board");
-  board.height = total_row * blockSize;
-  board.width = total_col * blockSize;
-  context = board.getContext("2d");
-
-  placeFood();
-  document.addEventListener("keyup", changeDirection);
-  setInterval(update, 1000 / 10);
-};
-
+let firstRenderDone = false;
 function update() {
   if (gameOver.value) return;
-
+  if (!firstRenderDone) {
+    isLoading.value = false;
+    firstRenderDone = true;
+  }
   // Background
-  context.fillStyle = "#062431";
+  context.fillStyle = "#ccc";
   context.fillRect(0, 0, board.width, board.height);
 
   // ----- DRAW FOOD WITH HALO -----
@@ -113,7 +161,6 @@ function update() {
   for (let i = 0; i < snakeBody.length; i++) {
     if (snakeX === snakeBody[i][0] && snakeY === snakeBody[i][1]) {
       gameOver.value = true;
-      alert("Game Over");
     }
   }
 }
@@ -194,11 +241,17 @@ function resetGame() {
 </script>
 
 <template>
-  <div class="snake-game-wrapper">
+  <div class="snake-game-wrapper bg-primary-200">
     <div class="relative snake-game">
+      <div
+        v-if="isLoading"
+        class="loader-overlay absolute inset-0 flex items-center justify-center z-20 bg-primary-200 bg-opacity-90"
+      >
+        <div class="loader"></div>
+      </div>
       <button
         v-if="gameOver"
-        class="text-white z-10 btn btn-accent absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
+        class="text-white z-10 btn btn-accent bg-a absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
         @click="resetGame"
       >
         Restart
@@ -206,7 +259,7 @@ function resetGame() {
       <button
         v-show="showSkipButton"
         v-if="!skipGame"
-        class="text-white z-10 btn btn-accent absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
+        class="text-white z-10 btn btn-accent bg-a absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
         @click="skipGame = true"
       >
         Skip
@@ -214,7 +267,7 @@ function resetGame() {
       <div
         v-show="showSkipButton"
         v-if="!skipGame"
-        class="absolute left-1/2 bottom-12 -translate-x-1/2"
+        class="absolute left-1/2 bottom-12 -translate-x-1/2 bg-accent-100 rounded-sm p-1"
       >
         start-game
       </div>
@@ -232,5 +285,19 @@ function resetGame() {
 }
 .snake-game {
   height: 425px;
+}
+.loader {
+  width: 40px;
+  height: 40px;
+  border: 4px solid #ffffff50;
+  border-top-color: #fff;
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
 }
 </style>

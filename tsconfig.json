@@ -12,7 +12,10 @@
     "types": ["vite/client", "node"],
     "baseUrl": ".",
     "paths": {
-      "@*": ["src/*"]
+      "@*": ["src/*"],
+      "@pages/*": ["src/pages/*"],
+      "@components/*": ["src/components/*"],
+      "@store/*": ["src/store/*"]
     }
   },
   "include": [
@@ -21,7 +24,7 @@
     "src/**/*.tsx",
     "src/**/*.vue",
     "src/main.js",
-    "src/router/index.js"
+    "src/router/index.ts"
   ],
   "exclude": ["node_modules"]
 }

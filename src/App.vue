@@ -1,9 +1,13 @@
 <script setup>
 import Navbar from "@components/Navbar.vue";
-import HelloPage from "@pages/HelloPage.vue";
+import Loader from "@components/Loader.vue";
+import BaseButton from "@components/Button.vue";
+import { useLoaderStore } from "@stores/loader";
+const loader = useLoaderStore();
 </script>
 
 <template>
+  <Loader v-if="loader.loading" />
   <Navbar />
   <RouterView />
 </template>
