@@ -1,8 +1,8 @@
 <script setup>
 import Navbar from "@components/Navbar.vue";
 import Loader from "@components/Loader.vue";
-import BaseButton from "@components/Button.vue";
 import { useLoaderStore } from "@stores/loader";
+
 const loader = useLoaderStore();
 </script>
 

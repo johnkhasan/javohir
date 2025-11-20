@@ -1,6 +1,6 @@
 <template>
-  <div class="loader-wrapper">
-    <div class="spinner"></div>
+  <div class="loader-wrapper bg-primary-200">
+    <div class="w-12 h-12 spinner border-6 border-a! border-t-secondary-100!"></div>
   </div>
 </template>
 
@@ -8,17 +8,13 @@
 .loader-wrapper {
   position: fixed;
   inset: 0;
-  background: rgba(255, 255, 255, 0.7);
   display: flex;
   align-items: center;
   justify-content: center;
   z-index: 9999;
 }
 .spinner {
-  width: 40px;
-  height: 40px;
-  border: 4px solid #ddd;
-  border-top-color: #333;
+ 
   border-radius: 50%;
   animation: spin 0.7s linear infinite;
 }

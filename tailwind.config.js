@@ -72,7 +72,11 @@ export default {
     },
   },
 
-  plugins: [require("tailwind-scrollbar"), require("daisyui")],
+  plugins: [
+    require("tailwind-scrollbar"),
+    require("daisyui"),
+    require("prettier-plugin-tailwindcss"),
+  ],
 
   // -------------------------
   // 🔥 DAISYUI CUSTOM THEMES

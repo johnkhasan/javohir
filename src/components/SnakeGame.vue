@@ -1,6 +1,7 @@
 <script setup>
 import { ref, onMounted, onBeforeUnmount } from "vue";
 import BackgroundBlur from "../assets/icons/background-blur.svg";
+import { X } from "lucide-vue-next";
 // skip snake game
 const skipGame = ref(false);
 const showSkipButton = ref(true);
@@ -42,7 +43,7 @@ onMounted(() => {
   // --- NEW SMOOTH GAME LOOP ---
   let lastTime = 0;
   let moveAccum = 0;
-  let snakeSpeed = 6; // ← sekin & silliq (katak/sek)
+  let snakeSpeed = 6;
 
   function gameLoop(timestamp) {
     const deltaTime = timestamp - lastTime;
@@ -51,13 +52,11 @@ onMounted(() => {
     moveAccum += deltaTime;
     const moveInterval = 1000 / snakeSpeed;
 
-    // Faqat vaqt yetganda qadam tashlaydi (grid movement)
     while (moveAccum >= moveInterval) {
       update();
       moveAccum -= moveInterval;
     }
 
-    // Doim chizamiz → silliq render
     drawFrame();
 
     requestAnimationFrame(gameLoop);
@@ -72,8 +71,8 @@ onBeforeUnmount(() => {
 });
 
 function drawFrame() {
-  // Background
-  context.fillStyle = "#011627";
+  // Background canvas
+  context.fillStyle = "rgba(1, 22, 39, 0.8)";
   context.fillRect(0, 0, board.width, board.height);
 
   // Food halo
@@ -113,7 +112,8 @@ function update() {
     firstRenderDone = true;
   }
   // Background
-  context.fillStyle = "#ccc";
+  context.fillStyle = "rgba(1, 22, 39, 0.8)";
+
   context.fillRect(0, 0, board.width, board.height);
 
   // ----- DRAW FOOD WITH HALO -----
@@ -169,9 +169,7 @@ function update() {
 function drawSnakePart(x, y, opacity) {
   const r = blockSize / 2;
   context.fillStyle = `rgba(67, 216, 172, ${opacity})`;
-  // context.beginPath();
-  // context.arc(x, y, r, 0, Math.PI * 2);
-  // context.fill();
+
   context.fillRect(x, y, blockSize, blockSize);
 }
 
@@ -241,51 +239,94 @@ function resetGame() {
 </script>
 
 <template>
-  <div class="snake-game-wrapper bg-primary-200">
-    <div class="relative snake-game">
-      <div
-        v-if="isLoading"
-        class="loader-overlay absolute inset-0 flex items-center justify-center z-20 bg-primary-200 bg-opacity-90"
-      >
-        <div class="loader"></div>
-      </div>
-      <button
-        v-if="gameOver"
-        class="text-white z-10 btn btn-accent bg-a absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
-        @click="resetGame"
-      >
-        Restart
-      </button>
-      <button
-        v-show="showSkipButton"
-        v-if="!skipGame"
-        class="text-white z-10 btn btn-accent bg-a absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
-        @click="skipGame = true"
-      >
-        Skip
-      </button>
-      <div
-        v-show="showSkipButton"
-        v-if="!skipGame"
-        class="absolute left-1/2 bottom-12 -translate-x-1/2 bg-accent-100 rounded-sm p-1"
-      >
-        start-game
-      </div>
-      <canvas v-show="!skipGame" class="" id="board"></canvas>
+  <div class="wrapper p-8 border-2 border-line flex justify-between relative">
+    <div
+      class="dot dot-left-top w-6 h-6 rounded-full text-2xl text-center backdrop-blur-3xl flex justify-center items-center bg-transparent top-2 absolute left-2"
+    >
+      <X size="24" color="red" class="bg-transparent" />
     </div>
+    <div
+      class="dot dot-right-top w-12 h-12 rounded-full flex justify-center items-center bg-transparent top-0 absolute right-0"
+    >
+      <!-- <img :src="xIcon" class="w-4" /> -->
+      <X size="24" color="red" class="bg-transparent" />
+    </div>
+    <div
+      class="dot dot-left-bottom w-12 h-12 rounded-full flex justify-center items-center bg-transparent bottom-0 absolute left-0"
+    >
+      <!-- <img :src="xIcon" class="w-4" /> -->
+    </div>
+    <div
+      class="dot dot-right-bottom w-12 h-12 rounded-full flex justify-center items-center bg-transparent bottom-0 absolute right-0"
+    >
+      <!-- <img :src="xIcon" class="w-4" /> -->
+    </div>
+
+    <div class="snake-game-left self-start">
+      <div v-show="!skipGame" class="relative snake-game">
+        <div
+          v-if="isLoading"
+          class="loader-overlay absolute inset-0 flex items-center justify-center z-20 bg-primary-200 bg-opacity-90"
+        >
+          <div class="loader"></div>
+        </div>
+        <button
+          v-if="gameOver"
+          class="text-white z-10 btn btn-accent bg-a absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
+          @click="resetGame"
+        >
+          Restart
+        </button>
+        <button
+          v-show="showSkipButton"
+          v-if="!skipGame"
+          class="text-white z-10 btn btn-accent bg-a absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
+          @click="skipGame = true"
+        >
+          Skip
+        </button>
+        <div
+          v-show="showSkipButton"
+          v-if="!skipGame"
+          class="absolute left-1/2 bottom-12 -translate-x-1/2 bg-accent-100 rounded-sm p-1"
+        >
+          start-game
+        </div>
+
+        <div class="h-[425px] w-[300px] rounded-2xl shadow-2xl">
+          <canvas class="canvas rounded-2xl shadow-inner" id="board"></canvas>
+        </div>
+      </div>
+      <div
+        class="back-blur absolute -z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 blur-2xl"
+      ></div>
+    </div>
+    <div class="snake-game-right"></div>
   </div>
 </template>
 
 <style scoped>
-.snake-game-wrapper {
-  background-image: url("../assets/background-blur.svg");
-  background-size: 200%;
+.wrapper {
+  width: 600px;
+  display: flex;
+  justify-content: center;
+  /* From https://css.glass */
+  background: rgba(255, 255, 255, 0.038);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+.back-blur {
+  background-image: url("../assets//icons/background-blur.svg");
+  background-size: 800px;
   background-position: center;
   background-repeat: no-repeat;
+  width: 50vw;
+  height: 50vh;
+  transform: rotate(-90deg);
 }
-.snake-game {
-  height: 425px;
-}
+
 .loader {
   width: 40px;
   height: 40px;
