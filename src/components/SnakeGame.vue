@@ -287,14 +287,14 @@ function resetGame() {
         >
           Restart
         </button>
-        <button
+        <!-- <button
           v-show="showSkipButton"
           v-if="!skipGame"
           class="bg-a btn btn-accent absolute top-1/2 left-1/2 z-10 -translate-x-1/2 -translate-y-1/2 text-white"
           @click="skipGame = true"
         >
           Skip
-        </button>
+        </button> -->
         <div
           v-show="showSkipButton"
           v-if="!skipGame"
