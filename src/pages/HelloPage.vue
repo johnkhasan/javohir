@@ -28,7 +28,7 @@ const isMobile = computed(() => {
           ></span
         >
       </p>
-      <div class="back-blur absolute top-0"></div>
+      <div class="back-blur absolute top-10"></div>
     </div>
     <div class="hello-right">
       <div v-show="!isMobile" class="">
