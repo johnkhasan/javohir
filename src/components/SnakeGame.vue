@@ -315,7 +315,7 @@ function resetGame() {
       <div class="game-console h-36 w-48 bg-gray-400 p-4">
         <p class="text-sm text-white">// use keyboard</p>
         <p class="text-sm text-white">// arrows to play</p>
-        <div class="console-btn flex flex-col items-center gap-1 mt-2">
+        <div class="console-btn mt-2 flex flex-col items-center gap-1">
           <div class="console-btn-up">
             <img :src="UpArrow" alt="" />
           </div>
