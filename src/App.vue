@@ -8,8 +8,10 @@ const loader = useLoaderStore();
 </script>
 
 <template>
-  <Loader v-if="loader.loading" />
-  <Navbar />
-  <RouterView />
-  <Footer />
+  <div class="border border-line">
+    <Loader v-if="loader.loading" />
+    <Navbar />
+    <RouterView />
+    <Footer />
+  </div>
 </template>
