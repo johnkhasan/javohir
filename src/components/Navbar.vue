@@ -50,7 +50,7 @@ const toggleMenu = () => {
   </table>
 
   <!-- MOBILE NAVBAR -->
-  <div class="text-secondary-100 relative flex w-full items-center justify-between p-4 sm:hidden">
+  <div class="text-secondary-100 pt-8 relative flex w-full items-center justify-between p-4 sm:hidden">
     <!-- LOGO -->
     <router-link class="z-50 text-xl font-bold" to="/">javohir-hasanov</router-link>
 
