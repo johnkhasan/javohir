@@ -1,2 +1,82 @@
 @import "tailwindcss";
 @plugin 'daisyui';
+
+@theme {
+  /* Primary */
+  --color-primary-100: #01080e;
+  --color-primary-200: #011627;
+  --color-primary-300: #011221;
+
+  /* Secondary */
+  --color-secondary-100: #607b96;
+  --color-secondary-200: #3c9d93;
+  --color-secondary-300: #4d5bce;
+
+  /* Accent */
+  --color-accent-100: #fea55f;
+  --color-accent-200: #43d9ad;
+  --color-accent-300: #e99287;
+  --color-accent-400: #c98bdf;
+
+  /*color- Line */
+  --color-line: #1e2d3d;
+
+  /* Gradient */
+  --color-grad-blue: #4d5bce;
+  --color-grad-green: #43d9ad;
+
+  /* color- DaisyUI overrides */
+  --color-p: #011221; /* primary */
+  --color-s: #3c9d93; /* secondary */
+  --color-a: #43d9ad; /* accent */
+  --color-n: #01080e; /* neutral */
+  --color-b1: #011627; /* base-100 */
+  --color-in: #4d5bce; /* info */
+  --color-su: #43d9ad; /* success */
+  --color-wa: #fea55f; /* warning */
+  --color-er: #e99287; /* error */
+}
+
+/* DARK MODE CLASSES */
+.dark {
+  --primary-100: #01080e;
+  --primary-200: #011627;
+  --primary-300: #011221;
+
+  --secondary-100: #607b96;
+  --secondary-200: #3c9d93;
+  --secondary-300: #4d5bce;
+
+  --accent-100: #fea55f;
+  --accent-200: #43d9ad;
+  --accent-300: #e99287;
+  --accent-400: #c98bdf;
+
+  --line: #1e2d3d;
+
+  --grad-blue: #4d5bce;
+  --grad-green: #43d9ad;
+
+  --p: #011221;
+  --s: #3c9d93;
+  --a: #43d9ad;
+  --n: #01080e;
+  --b1: #011627;
+  --in: #4d5bce;
+  --su: #43d9ad;
+  --wa: #fea55f;
+  --er: #e99287;
+}
+
+@font-face {
+  font-family: "FiraCode";
+  src: url("/src/assets/fonts/FiraCode-Regular.ttf") format("truetype");
+  font-display: swap;
+}
+body {
+  font-family: "FiraCode", sans-serif;
+  height: 100vh !important;
+  border-collapse: collapse;
+  background-color: rgba(1, 22, 39);
+  overflow: hidden;
+}
