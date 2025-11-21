@@ -12,7 +12,7 @@ const toggleMenu = () => {
 
 <template>
   <!-- DESKTOP NAVBAR (TABLE) -->
-  <table class="hidden w-full table-auto border-separate border-spacing-0 sm:table">
+  <table class="hidden w-full table-auto border-separate border border-line border-spacing-0 sm:table">
     <tr class="border-line text-secondary-100 border">
       <td class="p-3">
         <router-link to="/">javohir-hasanov</router-link>
