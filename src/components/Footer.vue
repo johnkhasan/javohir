@@ -1,11 +1,7 @@
 <script setup>
-import TelegramIcon from "../assets/icons/telegram-icon.svg";
-
-import LinkedinIcon from "../assets/icons/linkedin-icon.svg";
-import GithubIcon from "../assets/icons/github-icon.svg";
 </script>
 <template>
-  <table class="border-line absolute bottom-0 w-full border p-3">
+  <table class="border-line fixed bottom-0 w-full border p-3">
     <tr class="p-3">
       <td class="border-line border text-center text-secondary-100 text-lg">Find me in</td>
       <td class="border-line border p-2  text-center">
