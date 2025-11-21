@@ -12,7 +12,9 @@ const toggleMenu = () => {
 
 <template>
   <!-- DESKTOP NAVBAR (TABLE) -->
-  <table class="hidden w-full table-auto border-separate border border-line border-spacing-0 sm:table">
+  <table
+    class="border-line hidden w-full table-auto border-separate border-spacing-0 border sm:table"
+  >
     <tr class="border-line text-secondary-100 border">
       <td class="p-3 text-center">
         <router-link to="/">javohir-hasanov</router-link>
@@ -50,7 +52,9 @@ const toggleMenu = () => {
   </table>
 
   <!-- MOBILE NAVBAR -->
-  <div class="text-secondary-100 pt-8 relative flex w-full items-center justify-between p-4 sm:hidden">
+  <div
+    class="text-secondary-100 border-line relative flex w-full items-center justify-between border p-4 mt-0 sm:hidden"
+  >
     <!-- LOGO -->
     <router-link class="z-50 text-xl font-bold" to="/">javohir-hasanov</router-link>
 
