@@ -1,10 +1,9 @@
-<script setup>
-</script>
+<script setup></script>
 <template>
-  <table class="border-line fixed bottom-0 w-full border p-3">
+  <table class="border-line fixed bottom-0 w-full border z-9999 p-3">
     <tr class="p-3">
-      <td class="border-line border text-center text-secondary-100 text-lg">Find me in</td>
-      <td class="border-line border p-2  text-center">
+      <td class="border-line text-secondary-100 border text-center text-lg">Find me in</td>
+      <td class="border-line border p-2 text-center">
         <a href="https://t.me/LazyFrontender">
           <font-awesome-icon
             :icon="['fab', 'telegram']"
@@ -21,13 +20,12 @@
         </a>
       </td>
       <td class="w-0 sm:w-[60%]"></td>
-      <td class="border-line text-secondary-100 border whitespace-nowrap text-center p-1">
-        <a href="https://github.com/LazyBrogrammer">
-           <span class="hidden sm:inline"> @LazyBrogrammer </span>
-          <font-awesome-icon
-            :icon="['fab', 'github']"
-            class="text-2xl duration-200 hover:text-white"
-          />
+      <td
+        class="border-line text-secondary-100 border p-1 text-center whitespace-nowrap duration-200 hover:text-white"
+      >
+        <a href="https://github.com/johnkhasan">
+          <span class="hidden sm:inline"> @JohnKhasan </span>
+          <font-awesome-icon :icon="['fab', 'github']" class="text-2xl" />
         </a>
       </td>
     </tr>

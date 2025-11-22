@@ -1,13 +1,18 @@
 <script setup>
 import { ref } from "vue";
-import { useRoute } from "vue-router";
+import { useRoute, useRouter } from "vue-router";
 
 const route = useRoute();
+const router = useRouter();
 const isOpen = ref(false);
 
 const toggleMenu = () => {
   isOpen.value = !isOpen.value;
 };
+
+function changeRoute(routePath) {
+  router.push(routePath);
+}
 </script>
 
 <template>
@@ -15,54 +20,58 @@ const toggleMenu = () => {
   <table
     class="border-line hidden w-full table-auto border-separate border-spacing-0 border sm:table"
   >
-    <tr class="border-line text-secondary-100 border">
-      <td class="p-3 text-center">
-        <router-link to="/">javohir-hasanov</router-link>
+    <tbody class="border-line text-secondary-100 border">
+      <td class=" cursor-pointer  p-3 text-center" @click="changeRoute('/')">
+        <router-link to="/">javohir-hasan</router-link>
       </td>
 
       <!-- DESKTOP LINKS -->
       <td
-        :class="{ 'nav-link text-white': route.path === '/' }"
-        class="border-line border text-center"
+        :class="{ 'nav-link  text-white': route.path === '/' }"
+        class="border-line cursor-pointer border text-center"
+        @click="changeRoute('/')"
       >
         <router-link to="/">_hello</router-link>
       </td>
 
       <td
         :class="{ 'nav-link text-white': route.path === '/about-me' }"
-        class="border-line border text-center"
+        class="border-line cursor-pointer border text-center"
+        @click="changeRoute('/about-me')"
       >
         <router-link to="/about-me">_about-me</router-link>
       </td>
 
       <td
-        :class="{ 'nav-link text-white': route.path === '/projects' }"
-        class="border-line border text-center"
+        :class="{ 'nav-link  text-white': route.path === '/projects' }"
+        class="border-line cursor-pointer border text-center"
+        @click="changeRoute('/projects')"
       >
         <router-link to="/projects">_projects</router-link>
       </td>
 
       <td
-        :class="{ 'nav-link text-white': route.path === '/contact-me' }"
-        class="border-line border text-center"
+        :class="{ 'nav-link  text-white': route.path === '/contact-me' }"
+        class="border-line cursor-pointer border text-center"
+        @click="changeRoute('/contact-me')"
       >
         <router-link to="/contact-me">_contact-me</router-link>
       </td>
-    </tr>
+    </tbody>
   </table>
 
   <!-- MOBILE NAVBAR -->
   <div
-    class="text-secondary-100 border-line relative flex w-full items-center justify-between border p-4 mt-0 sm:hidden"
+    class="text-secondary-100 border-line relative mt-0 flex w-full items-center justify-between border p-4 sm:hidden"
   >
     <!-- LOGO -->
-    <router-link class="z-50 text-xl font-bold" to="/">javohir-hasanov</router-link>
+    <router-link class="z-50 text-xl font-bold" to="/">javohir-hasan</router-link>
 
     <!-- HAMBURGER -->
     <button class="relative z-50 flex h-8 w-10 flex-col justify-between" @click="toggleMenu">
       <span
         class="bg-secondary-100 block h-[3px] w-full transition-all duration-300"
-        :class="{ 'translate-y-[16px] rotate-45': isOpen }"
+        :class="{ 'translate-y-4 rotate-45': isOpen }"
       ></span>
       <span
         class="bg-secondary-100 block h-[3px] w-full transition-all duration-300"
@@ -70,7 +79,7 @@ const toggleMenu = () => {
       ></span>
       <span
         class="bg-secondary-100 block h-[3px] w-full transition-all duration-300"
-        :class="{ '-translate-y-[12px] -rotate-45': isOpen }"
+        :class="{ '-translate-y-3 -rotate-45': isOpen }"
       ></span>
     </button>
 
@@ -81,6 +90,7 @@ const toggleMenu = () => {
         class="bg-primary-200 text-secondary-100 fixed inset-0 z-40 flex h-screen flex-col"
       >
         <div class="mt-10 flex flex-col gap-6 p-8 text-2xl">
+          
           <router-link
             class="border-line border-b pb-3"
             :class="{ 'nav-link text-white': route.path === '/' }"
