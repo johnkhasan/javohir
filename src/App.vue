@@ -8,7 +8,7 @@ const loader = useLoaderStore();
 </script>
 
 <template>
-  <div class="border border-line">
+  <div class="border-line border">
     <Loader v-if="loader.loading" />
     <Navbar />
     <RouterView />
