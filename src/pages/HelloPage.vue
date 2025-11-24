@@ -6,7 +6,9 @@ const isMobile = computed(() => {
 });
 </script>
 <template>
-  <div class="hello-wrapper flex h-screen w-full items-center justify-evenly ">
+  <div
+    class="hello-wrapper flex h-[80vh] w-full flex-col items-center justify-around sm:flex-row "
+  >
     <div
       class="background-none sel relative flex flex-col items-center justify-center  sm:items-start sm:p-0"
     >
@@ -27,13 +29,17 @@ const isMobile = computed(() => {
         >
       </p>
       <div
-        class="back-blur absolute top-1/2 left-1/2 z-10 -translate-x-1/2 -translate-y-1/2 blur-2xl"
+        class="back-blur w-screen h-screen absolute top-1/2 left-1/2 z-10 -translate-x-1/2 -translate-y-1/2 blur-2xl"
       ></div>
     </div>
-    <div>
-      <div v-show="!isMobile" class="hidden sm:block">
-        <SnakeGame />
-      </div>
+    <!-- MOBILE CODE SNIPPET IMAGE -->
+    <div v-show="isMobile" class="block sm:hidden ">
+      <img src="../assets/images/code-snippet.svg" alt="" />
+    </div>
+
+    <!-- DESKTOP SNAKE GAME -->
+    <div v-show="!isMobile" class="hidden sm:block">
+      <SnakeGame />
     </div>
   </div>
 </template>
@@ -43,8 +49,6 @@ const isMobile = computed(() => {
   background-image: url("../assets/icons/background-blur.svg");
   background-size: 600px;
   background-position: center;
-  width: 100vw;
-  height: 100vh;
   background-repeat: no-repeat;
 }
 </style>
