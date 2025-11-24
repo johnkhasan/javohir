@@ -6,17 +6,15 @@ const isMobile = computed(() => {
 });
 </script>
 <template>
-  <div
-    class="hello-wrapper flex h-[80vh] w-full flex-col items-center justify-around sm:flex-row "
-  >
+  <div class="hello-wrapper flex h-[80vh] w-full items-center justify-evenly">
     <div
-      class="background-none sel relative flex flex-col items-center justify-center  sm:items-start sm:p-0"
+      class="background-none sel relative flex flex-col items-center justify-center sm:items-start sm:p-0"
     >
       <p class="text-white">Hi all. I am</p>
       <h1 class="text-center text-6xl font-bold text-white">Javohir Hasan</h1>
       <p class="text-secondary-300 mb-8 text-2xl font-bold">> Front-end developer</p>
       <span v-show="!isMobile" class="text-secondary-100">
-        <p class="mb-2">// complete the game to continue</p>
+        <p class="mb-2">// play the game, then continue</p>
         <p class="mb-2">// you can also see it on my Github page</p>
       </span>
       <p class="z-20">
@@ -29,12 +27,8 @@ const isMobile = computed(() => {
         >
       </p>
       <div
-        class="back-blur w-screen h-screen absolute top-1/2 left-1/2 z-10 -translate-x-1/2 -translate-y-1/2 blur-2xl"
+        class="back-blur absolute top-1/2 left-1/2 z-10 h-screen w-screen -translate-x-1/2 -translate-y-1/2 blur-2xl"
       ></div>
-    </div>
-    <!-- MOBILE CODE SNIPPET IMAGE -->
-    <div v-show="isMobile" class="block sm:hidden ">
-      <img src="../assets/images/code-snippet.svg" alt="" />
     </div>
 
     <!-- DESKTOP SNAKE GAME -->
@@ -47,7 +41,7 @@ const isMobile = computed(() => {
 <style scoped>
 .back-blur {
   background-image: url("../assets/icons/background-blur.svg");
-  background-size: 600px;
+  background-size: 800px;
   background-position: center;
   background-repeat: no-repeat;
 }

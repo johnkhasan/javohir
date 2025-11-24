@@ -8,9 +8,26 @@ import * as lucide from "lucide-vue-next";
 // font awesome library
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
+
+// BRANDS
 import { faTelegram, faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
-import { faBars, faXmark } from "@fortawesome/free-solid-svg-icons";
-library.add(faTelegram, faGithub, faLinkedin, faBars, faXmark);
+
+// SOLID
+import { faBars, faXmark, faCaretDown, faPhone, faEnvelope } from "@fortawesome/free-solid-svg-icons";
+
+// REGULAR
+// import { faEnvelope } from "@fortawesome/free-regular-svg-icons";
+
+library.add(
+  faTelegram,
+  faGithub,
+  faLinkedin,
+  faBars,
+  faXmark,
+  faCaretDown,
+  faPhone,
+  faEnvelope
+);
 
 const app = createApp(App);
 const pinia = createPinia();
@@ -24,3 +41,5 @@ for (const [key, component] of Object.entries(lucide)) {
 app.use(pinia);
 app.use(router);
 app.mount("#app");
+
+
