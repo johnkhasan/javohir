@@ -8,11 +8,10 @@ const loader = useLoaderStore();
 </script>
 
 <template>
-  <div class=" w-full border-collapse">
+  <div class="w-full border-collapse">
     <Loader v-if="loader.loading" />
     <Navbar />
-    <Footer />
     <RouterView />
-    
+    <Footer />
   </div>
 </template>

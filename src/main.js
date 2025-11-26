@@ -13,7 +13,14 @@ import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 import { faTelegram, faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
 
 // SOLID
-import { faBars, faXmark, faCaretDown, faPhone, faEnvelope } from "@fortawesome/free-solid-svg-icons";
+import {
+  faBars,
+  faXmark,
+  faCaretDown,
+  faPhone,
+  faEnvelope,
+  faArrowUpRightFromSquare,
+} from "@fortawesome/free-solid-svg-icons";
 
 // REGULAR
 // import { faEnvelope } from "@fortawesome/free-regular-svg-icons";
@@ -26,7 +33,8 @@ library.add(
   faXmark,
   faCaretDown,
   faPhone,
-  faEnvelope
+  faEnvelope,
+  faArrowUpRightFromSquare
 );
 
 const app = createApp(App);
@@ -41,5 +49,3 @@ for (const [key, component] of Object.entries(lucide)) {
 app.use(pinia);
 app.use(router);
 app.mount("#app");
-
-

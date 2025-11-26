@@ -18,10 +18,10 @@ function changeRoute(routePath) {
 <template>
   <!-- DESKTOP NAVBAR (TABLE) -->
   <table
-    class="border-line z-9999 hidden border-y-0 border-x-0 w-full table-auto border-separate border-spacing-0 border sm:table"
+    class="border-line z-9999 hidden w-full table-auto border-separate border-spacing-0 border border-x-0 border-y-0 sm:table"
   >
     <tbody class="border-line text-secondary-100 border">
-      <td class="w-[15%] cursor-pointer p-3 text-center text-nowrap" @click="changeRoute('/')">
+      <td class="w-[25%] cursor-pointer  text-nowrap" @click="changeRoute('/')">
         <router-link to="/">javohir-hasan</router-link>
       </td>
 
@@ -36,7 +36,7 @@ function changeRoute(routePath) {
 
       <td
         :class="{ 'nav-link text-white': route.path === '/about-me' }"
-        class="border-line cursor-pointer text-nowrap border text-center"
+        class="border-line cursor-pointer border text-center text-nowrap"
         @click="changeRoute('/about-me')"
       >
         <router-link to="/about-me">_about-me</router-link>
@@ -74,11 +74,11 @@ function changeRoute(routePath) {
         :class="{ 'translate-y-3 rotate-45': isOpen }"
       ></span>
       <span
-        class="bg-secondary-100 block h-[3px] w-full transition-all rounded-sm duration-300"
+        class="bg-secondary-100 block h-[3px] w-full rounded-sm transition-all duration-300"
         :class="{ 'opacity-0': isOpen }"
       ></span>
       <span
-        class="bg-secondary-100 block h-[3px] w-full transition-all rounded-sm duration-300"
+        class="bg-secondary-100 block h-[3px] w-full rounded-sm transition-all duration-300"
         :class="{ '-translate-y-2 -rotate-45': isOpen }"
       ></span>
     </button>

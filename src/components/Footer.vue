@@ -4,7 +4,7 @@ const linkedinURL = "https://www.linkedin.com/in/javohirhasanov/";
 const githubURL = "https://github.com/johnkhasan";
 </script>
 <template>
-  <table class="border-line fixed bottom-0 z-9999 w-full border p-3">
+  <table class="border-line fixed bottom-0 z-9999 w-full border p-3 bg-primary-200">
     <tr class="p-3">
       <td class="border-line text-secondary-100 border text-center text-lg">Find me in</td>
       <td class="border-line border p-2 text-center">
