@@ -1,6 +1,6 @@
 <template>
-  <div class="hero min-h-screen bg-base-200">
-    <div class="hero-content text-center">
+  <div class="hero min-h-screen bg-neutral">
+    <div class="hero-content text-center text-secondary-100">
       <div class="max-w-md">
         <h1 class="text-5xl font-bold">About Me</h1>
         <p class="py-6">
