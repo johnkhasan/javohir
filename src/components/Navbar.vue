@@ -18,10 +18,10 @@ function changeRoute(routePath) {
 <template>
   <!-- DESKTOP NAVBAR (TABLE) -->
   <table
-    class="border-line hidden w-full table-auto border-separate border-spacing-0 border sm:table"
+    class="border-line z-9999 hidden w-full table-auto border-separate border-spacing-0 border border-x-0 border-y-0 sm:table"
   >
     <tbody class="border-line text-secondary-100 border">
-      <td class=" cursor-pointer  p-3 text-center" @click="changeRoute('/')">
+      <td class="w-[25%] cursor-pointer  text-nowrap" @click="changeRoute('/')">
         <router-link to="/">javohir-hasan</router-link>
       </td>
 
@@ -36,7 +36,7 @@ function changeRoute(routePath) {
 
       <td
         :class="{ 'nav-link text-white': route.path === '/about-me' }"
-        class="border-line cursor-pointer border text-center"
+        class="border-line cursor-pointer border text-center text-nowrap"
         @click="changeRoute('/about-me')"
       >
         <router-link to="/about-me">_about-me</router-link>
@@ -49,10 +49,10 @@ function changeRoute(routePath) {
       >
         <router-link to="/projects">_projects</router-link>
       </td>
-
+      <td class="w-[50%]"><span></span></td>
       <td
         :class="{ 'nav-link  text-white': route.path === '/contact-me' }"
-        class="border-line cursor-pointer border text-center"
+        class="border-line cursor-pointer border text-center text-nowrap"
         @click="changeRoute('/contact-me')"
       >
         <router-link to="/contact-me">_contact-me</router-link>
@@ -68,18 +68,18 @@ function changeRoute(routePath) {
     <router-link class="z-50 text-xl font-bold" to="/">javohir-hasan</router-link>
 
     <!-- HAMBURGER -->
-    <button class="relative z-50 flex h-8 w-10 flex-col justify-between" @click="toggleMenu">
+    <button class="relative z-50 flex h-6 w-8 flex-col justify-between" @click="toggleMenu">
       <span
-        class="bg-secondary-100 block h-[3px] w-full transition-all duration-300"
-        :class="{ 'translate-y-4 rotate-45': isOpen }"
+        class="bg-secondary-100 block h-[3px] w-full rounded-sm transition-all duration-300"
+        :class="{ 'translate-y-3 rotate-45': isOpen }"
       ></span>
       <span
-        class="bg-secondary-100 block h-[3px] w-full transition-all duration-300"
+        class="bg-secondary-100 block h-[3px] w-full rounded-sm transition-all duration-300"
         :class="{ 'opacity-0': isOpen }"
       ></span>
       <span
-        class="bg-secondary-100 block h-[3px] w-full transition-all duration-300"
-        :class="{ '-translate-y-3 -rotate-45': isOpen }"
+        class="bg-secondary-100 block h-[3px] w-full rounded-sm transition-all duration-300"
+        :class="{ '-translate-y-2 -rotate-45': isOpen }"
       ></span>
     </button>
 
@@ -90,7 +90,6 @@ function changeRoute(routePath) {
         class="bg-primary-200 text-secondary-100 fixed inset-0 z-40 flex h-screen flex-col"
       >
         <div class="mt-10 flex flex-col gap-6 p-8 text-2xl">
-          
           <router-link
             class="border-line border-b pb-3"
             :class="{ 'nav-link text-white': route.path === '/' }"

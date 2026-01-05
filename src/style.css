@@ -1,5 +1,9 @@
+* {
+  box-sizing: border-box;
+  border-collapse: collapse;
+}
 @import "tailwindcss";
-@plugin 'daisyui';
+@plugin "daisyui";
 
 @theme {
   /* Primary */
@@ -8,7 +12,9 @@
   --color-primary-300: #011221;
 
   /* Secondary */
+  --color-secondary-50: #1e2d3d;
   --color-secondary-100: #607b96;
+  --color-secondary-150: #1c2b3a;
   --color-secondary-200: #3c9d93;
   --color-secondary-300: #4d5bce;
 
@@ -76,7 +82,7 @@
 body {
   font-family: "FiraCode", sans-serif;
   height: 100vh !important;
-  border-collapse: collapse;
+
   background-color: rgba(1, 22, 39);
   overflow: hidden;
 }
