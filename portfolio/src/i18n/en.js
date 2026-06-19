@@ -10,19 +10,19 @@ export default {
     role: 'Frontend Developer',
     words: ['creative', 'passionate', 'fast', 'detail-oriented'],
     iam: "I'm",
-    sub: 'I build modern web experiences with retro-futuristic design. Every pixel, every animation — purposeful.',
+    sub: 'Frontend developer building enterprise-scale web apps with Vue 3, Nuxt 3 & React. Passionate about scalable architecture, real-time systems, and clean UI/UX.',
     cta: 'View my work →',
   },
   about: {
     title: 'About me.',
     avatarLabel: 'Developer illustration',
     note1: {
-      date: '☀️ Today · Tashkent, Uzbekistan',
-      text: "I've been doing frontend development for 3+ years. The React ecosystem is closest to my heart — components, hooks, state management. I treat every project as a work of art.",
+      date: '☀️ Now · Tashkent, Uzbekistan',
+      text: "Frontend Developer at DAS UTY (Uzbekistan Railways), building enterprise-scale platforms with Nuxt 3, Vue 3, and TypeScript. Experienced in RBAC, real-time WebSocket systems, and OpenAPI-driven architecture.",
     },
     note2: {
-      date: '🎯 Goal · 2024–2025',
-      text: 'Building performant, accessible, and beautiful web experiences is my main goal. From GSAP animations to Web Vitals optimization — ready for all of it. Code is poetry.',
+      date: '🎓 Education · Karshi State University',
+      text: "Bachelor's in Mathematics & Computer Science (2020–2025). IELTS 6.0. 3rd place at Ideathon Qarshi. Mentored 50+ students at ITPark. Code is how I think clearly.",
     },
   },
   experience: {

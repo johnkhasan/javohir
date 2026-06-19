@@ -73,9 +73,9 @@ const Copyright = styled.p`
 `
 
 const socials = [
-  { key: 'github', href: 'https://github.com/justsun', icon: 'GH' },
-  { key: 'linkedin', href: 'https://linkedin.com', icon: 'LI' },
-  { key: 'email', href: 'mailto:hello@justsun.io', icon: '✉' },
+  { key: 'github', href: 'https://github.com/johnkhasan', icon: 'GH' },
+  { key: 'linkedin', href: 'https://linkedin.com/in/javohir-hasanov', icon: 'LI' },
+  { key: 'email', href: 'mailto:javohirdevuz@gmail.com', icon: '✉' },
 ]
 
 export default function Footer() {

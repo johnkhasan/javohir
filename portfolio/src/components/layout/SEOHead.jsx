@@ -1,8 +1,8 @@
 import { Helmet } from 'react-helmet-async'
 
 export default function SEOHead({
-  title = 'Javohir — Frontend Developer',
-  description = 'Retro-futuristik dizayn va zamonaviy texnologiyalar bilan qurilgan portfolio.',
+  title = 'Javohir Hasanov — Frontend Developer',
+  description = 'Frontend Developer skilled in Vue 3, Nuxt 3, React & TypeScript. Building enterprise-scale web applications with scalable architecture and real-time systems.',
   image = '/og-image.png',
 }) {
   return (

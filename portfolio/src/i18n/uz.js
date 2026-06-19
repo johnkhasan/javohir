@@ -10,19 +10,19 @@ export default {
     role: 'Frontend Dasturchi',
     words: ['ijodkor', 'ishtiyoqli', 'tezkor', 'aniqlikka intiluvchi'],
     iam: 'Men',
-    sub: "Retro-futuristik dizayn bilan zamonaviy web tajribalari yarataman. Har bir piksel, har bir animatsiya — maqsadga yo'naltirilgan.",
-    cta: 'Ishlarimni ko\'rish →',
+    sub: "Vue 3, Nuxt 3 va React bilan enterprise ko'lamdagi web ilovalar yarataman. Kengaytiriladigan arxitektura, real-vaqt tizimlar va sifatli UI/UX — mening ustuvorligim.",
+    cta: "Ishlarimni ko'rish →",
   },
   about: {
     title: 'Men haqimda.',
     avatarLabel: 'Dasturchi illyustratsiyasi',
     note1: {
-      date: "☀️ Bugun · Toshkent, O'zbekiston",
-      text: "Frontend development bilan 3+ yildan beri shug'ullanaman. React ekosistemi menga eng yaqin — komponentlar, hooks, state management. Har bir loyihaga san'at asari sifatida qarayman.",
+      date: "☀️ Hozir · Toshkent, O'zbekiston",
+      text: "DAS UTY (O'zbekiston Temir Yo'llari) da Frontend Developer, Nuxt 3, Vue 3 va TypeScript bilan enterprise platformalar yarataman. RBAC, real-vaqt WebSocket va OpenAPI arxitekturasi bo'yicha tajribam bor.",
     },
     note2: {
-      date: '🎯 Maqsad · 2024–2025',
-      text: "Performant, accessible va go'zal web tajribalari yaratish — mening asosiy maqsadim. GSAP animatsiyalaridan tortib Web Vitals optimizatsiyasigacha — barchasini qilishga tayyorman. Kod — she'r.",
+      date: "🎓 Ta'lim · Qarshi Davlat Universiteti",
+      text: "Matematika va Informatika bakalavri (2020–2025). IELTS 6.0. Qarshi Ideathon — 3-o'rin. ITPark da 50+ talabaga mentor bo'ldim. Kod — aniq fikrlash usulim.",
     },
   },
   experience: {
