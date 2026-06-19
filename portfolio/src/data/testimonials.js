@@ -1,0 +1,32 @@
+export const testimonials = [
+  {
+    id: 1,
+    name: 'Azizbek Toshmatov',
+    role: 'CEO, TechStart',
+    roleUz: 'Bosh direktor, TechStart',
+    text: 'Javohir delivered an outstanding e-commerce platform. His attention to detail and animation skills are truly exceptional.',
+    textUz: "Javohir ajoyib e-commerce platformasini yaratdi. Uning detallarga e'tibori va animatsiya ko'nikmalari g'ayrioddiy.",
+    avatar: '👨‍💼',
+    rating: 5,
+  },
+  {
+    id: 2,
+    name: 'Sarah Chen',
+    role: 'Product Manager, StartupXYZ',
+    roleUz: 'Mahsulot menejeri, StartupXYZ',
+    text: 'Working with Javohir was a pleasure. He understood our vision immediately and built exactly what we needed — on time.',
+    textUz: "Javohir bilan ishlash zavqli edi. U bizning g'oyamizni darhol tushundi va kerakli narsani o'z vaqtida yaratdi.",
+    avatar: '👩‍💻',
+    rating: 5,
+  },
+  {
+    id: 3,
+    name: 'Bobur Yusupov',
+    role: 'CTO, Digital Agency',
+    roleUz: 'Texnik direktor, Digital Agency',
+    text: 'Exceptional code quality and timely delivery. The animations and performance optimizations are top-notch.',
+    textUz: "Ajoyib kod sifati va o'z vaqtida yetkazib berish. Animatsiyalar va performance optimizatsiyalari yuqori darajada.",
+    avatar: '👨‍🔬',
+    rating: 5,
+  },
+]

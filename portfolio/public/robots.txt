@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://justsun.io/sitemap.xml

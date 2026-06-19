@@ -1,0 +1,12 @@
+{
+  "name": "Javohir — Frontend Developer",
+  "short_name": "Javohir",
+  "description": "Portfolio of Javohir, Frontend Developer",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#FF2D78",
+  "theme_color": "#FF2D78",
+  "icons": [
+    { "src": "/favicon.svg", "sizes": "any", "type": "image/svg+xml" }
+  ]
+}

@@ -1,0 +1,32 @@
+export const experiences = [
+  {
+    id: 1,
+    year: '2024',
+    company: 'Freelance',
+    role: 'Frontend Developer',
+    description: 'Built modern web applications for clients using React and Next.js. Focused on performance optimization and SEO improvements.',
+    descriptionUz: "React va Next.js da mijozlar uchun zamonaviy web ilovalar yaratdim. Performance optimizatsiya va SEO yaxshilash bo'yicha ishladim.",
+    tags: ['React', 'Next.js', 'TypeScript', 'Styled-Components'],
+    color: '#FF2D78',
+  },
+  {
+    id: 2,
+    year: '2023',
+    company: 'Startup Project',
+    role: 'Full-Stack Developer',
+    description: 'Built frontend and backend for an e-commerce platform. Integrated RESTful APIs and implemented real-time features.',
+    descriptionUz: "E-commerce platformasi uchun frontend va backend yaratdim. RESTful API integratsiyasi va real-time features implement qildim.",
+    tags: ['React', 'Node.js', 'MongoDB', 'Express'],
+    color: '#00D4C8',
+  },
+  {
+    id: 3,
+    year: '2022',
+    company: 'Web Agency',
+    role: 'Junior Frontend Developer',
+    description: 'Created responsive websites for various clients. Worked closely with UI/UX designers to deliver pixel-perfect results.',
+    descriptionUz: "Turli mijozlar uchun responsive web saytlar yaratdim. UI/UX dizaynerlar bilan yaqin hamkorlikda ishladim.",
+    tags: ['HTML', 'CSS', 'JavaScript', 'Vue.js'],
+    color: '#7C3AED',
+  },
+]
