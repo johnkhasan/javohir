@@ -1,5 +1,9 @@
-// Botga kelgan xabarlarni egasiga (TELEGRAM_CHAT_ID) uzatadi.
+// Botga kelgan xabarlarni egasiga (TELEGRAM_CHAT_ID) uzatadi va
+// egasining reply'ini asl yuboruvchiga qaytaradi.
 // Telegram bu endpoint'ga POST qiladi — setWebhook orqali bir marta ro'yxatdan o'tkaziladi.
+
+const HEADER_MARK = '🤖'
+const ID_RE = /id:\s*(\d+)/
 
 const api = (token, method, payload) =>
   fetch(`https://api.telegram.org/bot${token}/${method}`, {
@@ -18,6 +22,27 @@ const describeSender = (from, chat) => {
   if (from?.username) parts.push(`@${escapeHtml(from.username)}`)
   if (from?.id) parts.push(`<a href="tg://user?id=${from.id}">id: ${from.id}</a>`)
   return parts.join(' · ')
+}
+
+// Egasi qaysi xabarga reply qilgan bo'lsa, o'shandan asl yuboruvchini aniqlaymiz.
+const resolveTarget = (replied) => {
+  if (!replied) return null
+
+  // 1) Forward'ning o'ziga reply — yuboruvchi forward'ni yopmagan bo'lsa ishlaydi.
+  const origin = replied.forward_origin
+  if (origin?.type === 'user' && origin.sender_user?.id) return origin.sender_user.id
+  if (replied.forward_from?.id) return replied.forward_from.id
+
+  // 2) Sarlavhaga reply — "id: 123" ni o'zimiz yozganmiz, shuning uchun ishonchli.
+  //    Faqat bot yozgan va bizning belgimiz bilan boshlanadigan xabarni o'qiymiz,
+  //    aks holda odamning matnidagi tasodifiy "id: 5" ni target deb olib qo'yamiz.
+  const text = replied.text ?? ''
+  if (replied.from?.is_bot && text.startsWith(HEADER_MARK)) {
+    const m = text.match(ID_RE)
+    if (m) return Number(m[1])
+  }
+
+  return null
 }
 
 export default async function handler(req, res) {
@@ -53,13 +78,53 @@ export default async function handler(req, res) {
   // Telegram xatoda qayta-qayta urinadi — shuning uchun doim 200 qaytaramiz.
   if (!msg?.chat?.id) return res.status(200).json({ ok: true })
 
-  // O'zimiz yozgan xabarni o'zimizga qaytarmaymiz (cheksiz halqa bo'lmasin).
-  if (String(msg.chat.id) === String(ownerId)) return res.status(200).json({ ok: true })
+  const fromOwner = String(msg.chat.id) === String(ownerId)
 
   try {
+    if (fromOwner) {
+      // Egasining reply'i — asl yuboruvchiga qaytaramiz. Oddiy xabari e'tiborsiz qoladi.
+      if (!msg.reply_to_message) return res.status(200).json({ ok: true })
+
+      const target = resolveTarget(msg.reply_to_message)
+      if (!target) {
+        await api(token, 'sendMessage', {
+          chat_id: ownerId,
+          text: '⚠️ Kimga yuborishni aniqlay olmadim — bu odam forward\'ni yopib qo\'ygan. Yuqoridagi 🤖 sarlavha xabariga reply qiling.',
+          reply_to_message_id: msg.message_id,
+        })
+        return res.status(200).json({ ok: true })
+      }
+
+      // copyMessage — xabar botdan kelganday ko'rinadi, sizning profilingiz ochilmaydi.
+      const copy = await api(token, 'copyMessage', {
+        chat_id: target,
+        from_chat_id: ownerId,
+        message_id: msg.message_id,
+      })
+
+      if (!copy.ok) {
+        console.error('copyMessage to user failed', copy.status, await copy.text())
+        await api(token, 'sendMessage', {
+          chat_id: ownerId,
+          text: '❌ Yuborilmadi — foydalanuvchi botni bloklagan yoki o\'chirgan bo\'lishi mumkin.',
+          reply_to_message_id: msg.message_id,
+        })
+      } else {
+        // Yetib borgani bilinsin — ortiqcha xabarsiz.
+        await api(token, 'setMessageReaction', {
+          chat_id: ownerId,
+          message_id: msg.message_id,
+          reaction: [{ type: 'emoji', emoji: '👍' }],
+        })
+      }
+
+      return res.status(200).json({ ok: true })
+    }
+
+    // Begona odamdan kelgan xabar — egasiga uzatamiz.
     await api(token, 'sendMessage', {
       chat_id: ownerId,
-      text: `🤖 <b>Botga yangi xabar</b>\n${describeSender(msg.from, msg.chat)}`,
+      text: `${HEADER_MARK} <b>Botga yangi xabar</b>\n${describeSender(msg.from, msg.chat)}`,
       parse_mode: 'HTML',
       disable_web_page_preview: true,
     })
