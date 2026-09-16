@@ -64,55 +64,66 @@
         "@context": "https://schema.org",
         "@graph": [
           {
-            "@type": "Person",
-            "@id": "https://javohir.ru/#person",
-            "name": "Javohir Hasanov",
-            "alternateName": [
-              "Javokhir Khasanov",
-              "Javoxir Xasanov",
-              "Javohir Xasanov",
-              "Javokhir Hasanov",
-              "Javohir Hasanov",
-              "Джавохир Хасанов",
-              "Жавохир Хасанов"
-            ],
-            "givenName": "Javohir",
-            "familyName": "Hasanov",
+            "@type": "ProfilePage",
+            "@id": "https://javohir.ru/#profilepage",
             "url": "https://javohir.ru/",
-            "image": "https://javohir.ru/og-image-v2.png",
-            "jobTitle": "Software Engineer",
-            "email": "mailto:javohirdevuz@gmail.com",
-            "worksFor": {
-              "@type": "Organization",
-              "name": "Uzbekistan Railways (Oʻzbekiston temir yoʻllari) — UTY"
-            },
-            "alumniOf": {
-              "@type": "CollegeOrUniversity",
-              "name": "Karshi State University"
-            },
-            "knowsAbout": [
-              "Frontend Development",
-              "Vue.js",
-              "Nuxt.js",
-              "React",
-              "Next.js",
-              "TypeScript",
-              "JavaScript",
-              "Tailwind CSS",
-              "REST API",
-              "WebSocket",
-              "Web Performance"
-            ],
-            "knowsLanguage": [
-              { "@type": "Language", "name": "Uzbek" },
-              { "@type": "Language", "name": "English" }
-            ],
-            "nationality": { "@type": "Country", "name": "Uzbekistan" },
-            "sameAs": [
-              "https://github.com/johnkhasan",
-              "https://www.linkedin.com/in/javohirhasanov/",
-              "https://t.me/JavohirHasanov"
-            ]
+            "name": "Javohir Hasanov — Software Engineer",
+            "isPartOf": { "@id": "https://javohir.ru/#website" },
+            "dateCreated": "2025-01-01T00:00:00+05:00",
+            "dateModified": "2026-09-16T00:00:00+05:00",
+            "primaryImageOfPage": "https://javohir.ru/og-image-v2.png",
+            "about": { "@id": "https://javohir.ru/#person" },
+            "mainEntity": {
+              "@type": "Person",
+              "@id": "https://javohir.ru/#person",
+              "name": "Javohir Hasanov",
+              "alternateName": [
+                "Javokhir Khasanov",
+                "Javoxir Xasanov",
+                "Javohir Xasanov",
+                "Javokhir Hasanov",
+                "Javohir Hasanov",
+                "Джавохир Хасанов",
+                "Жавохир Хасанов"
+              ],
+              "givenName": "Javohir",
+              "familyName": "Hasanov",
+              "url": "https://javohir.ru/",
+              "image": "https://javohir.ru/og-image-v2.png",
+              "jobTitle": "Software Engineer",
+              "email": "mailto:javohirdevuz@gmail.com",
+              "worksFor": {
+                "@type": "Organization",
+                "name": "Uzbekistan Railways (Oʻzbekiston temir yoʻllari) — UTY"
+              },
+              "alumniOf": {
+                "@type": "CollegeOrUniversity",
+                "name": "Karshi State University"
+              },
+              "knowsAbout": [
+                "Frontend Development",
+                "Vue.js",
+                "Nuxt.js",
+                "React",
+                "Next.js",
+                "TypeScript",
+                "JavaScript",
+                "Tailwind CSS",
+                "REST API",
+                "WebSocket",
+                "Web Performance"
+              ],
+              "knowsLanguage": [
+                { "@type": "Language", "name": "Uzbek" },
+                { "@type": "Language", "name": "English" }
+              ],
+              "nationality": { "@type": "Country", "name": "Uzbekistan" },
+              "sameAs": [
+                "https://github.com/johnkhasan",
+                "https://www.linkedin.com/in/javohirhasanov/",
+                "https://t.me/JavohirHasanov"
+              ]
+            }
           },
           {
             "@type": "WebSite",
@@ -122,18 +133,6 @@
             "inLanguage": ["en", "uz"],
             "author": { "@id": "https://javohir.ru/#person" },
             "publisher": { "@id": "https://javohir.ru/#person" }
-          },
-          {
-            "@type": "ProfilePage",
-            "@id": "https://javohir.ru/#profilepage",
-            "url": "https://javohir.ru/",
-            "name": "Javohir Hasanov — Software Engineer",
-            "isPartOf": { "@id": "https://javohir.ru/#website" },
-            "mainEntity": { "@id": "https://javohir.ru/#person" },
-            "about": { "@id": "https://javohir.ru/#person" },
-            "dateCreated": "2025-01-01T00:00:00+05:00",
-            "dateModified": "2026-09-16T00:00:00+05:00",
-            "primaryImageOfPage": "https://javohir.ru/og-image-v2.png"
           }
         ]
       }
