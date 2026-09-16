@@ -216,7 +216,7 @@ export default function Navbar() {
   return (
     <>
       <Nav $scrolled={scrolled} role="navigation" aria-label="Main navigation">
-        <Logo href="/" aria-label="Home">JS.</Logo>
+        <Logo href="/" aria-label="Home">JH.</Logo>
 
         <Right>
           <Links>
