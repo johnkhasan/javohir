@@ -53,7 +53,7 @@ export default function Preloader({ onComplete }) {
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.1 }}
       >
-        JS.
+        JH.
       </Logo>
       <ProgressTrack>
         <ProgressBar

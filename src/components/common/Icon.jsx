@@ -47,8 +47,8 @@ const BRAND = {
   vuedotjs: siVuedotjs,
 }
 
-// Concepts (REST, RBAC, …) and the few brands simple-icons doesn't carry,
-// drawn as stroked 24×24 glyphs so they sit evenly next to the brand marks.
+// Concepts (REST, RBAC, …) plus the brands simple-icons doesn't carry —
+// LinkedIn and Element Plus among them — drawn as stroked 24×24 glyphs.
 const CUSTOM = {
   elementplus: {
     hex: '409EFF',
@@ -86,9 +86,31 @@ const CUSTOM = {
     hex: '008FFB',
     paths: ['M3 20h18', 'M7 20v-6', 'M12 20v-10', 'M17 20v-4'],
   },
+  linkedin: {
+    hex: '0A66C2',
+    paths: [
+      'M6.5 2.5h11a4 4 0 0 1 4 4v11a4 4 0 0 1-4 4h-11a4 4 0 0 1-4-4v-11a4 4 0 0 1 4-4z',
+      'M7.6 10.6v6',
+      'M11.6 16.6v-6',
+      'M11.6 13.2a2.6 2.6 0 0 1 5.2 0v3.4',
+    ],
+    circles: [[7.6, 7.5, 0.5]],
+  },
+  email: {
+    hex: 'EA4335',
+    paths: [
+      'M5 5.5h14a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-9a2 2 0 0 1 2-2z',
+      'm3.4 7.6 8.6 6 8.6-6',
+    ],
+  },
 }
 
-export default function SkillIcon({ name, size = 40 }) {
+/**
+ * `tone="brand"` paints each mark in its own brand colour (the skill grid).
+ * `tone="current"` inherits the parent's `color`, so buttons that recolour on
+ * hover keep working.
+ */
+export default function Icon({ name, size = 40, tone = 'brand' }) {
   const brand = BRAND[name]
 
   if (brand) {
@@ -97,7 +119,7 @@ export default function SkillIcon({ name, size = 40 }) {
         viewBox="0 0 24 24"
         width={size}
         height={size}
-        fill={`#${brand.hex}`}
+        fill={tone === 'current' ? 'currentColor' : `#${brand.hex}`}
         aria-hidden="true"
         focusable="false"
       >
@@ -115,7 +137,7 @@ export default function SkillIcon({ name, size = 40 }) {
       width={size}
       height={size}
       fill="none"
-      stroke={`#${custom.hex}`}
+      stroke={tone === 'current' ? 'currentColor' : `#${custom.hex}`}
       strokeWidth="1.8"
       strokeLinecap="round"
       strokeLinejoin="round"

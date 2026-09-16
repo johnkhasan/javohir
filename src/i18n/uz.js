@@ -54,10 +54,10 @@ export default {
   },
   footer: {
     tagline: "Keling, biror narsa yarataylik.",
-    copyright: 'React + Vite bilan qurilgan.',
     socials: {
       github: 'GitHub',
       linkedin: 'LinkedIn',
+      telegram: 'Telegram',
       email: 'Email',
     },
   },

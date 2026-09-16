@@ -17,7 +17,7 @@ export default function SEOHead({
       <meta name="twitter:title" content={title} />
       <meta name="twitter:description" content={description} />
       <meta name="twitter:image" content={image} />
-      <link rel="canonical" href="https://justsun.io" />
+      <link rel="canonical" href="https://javohir.ru" />
     </Helmet>
   )
 }

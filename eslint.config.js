@@ -18,4 +18,9 @@ export default defineConfig([
       parserOptions: { ecmaFeatures: { jsx: true } },
     },
   },
+  {
+    // Vercel serverless funksiyalari brauzerda emas, Node'da ishlaydi.
+    files: ['api/**/*.js'],
+    languageOptions: { globals: globals.node },
+  },
 ])

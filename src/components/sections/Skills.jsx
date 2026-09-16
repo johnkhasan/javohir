@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { motion } from 'framer-motion'
 import { useTranslation } from 'react-i18next'
 import SectionTitle from '../common/SectionTitle'
-import SkillIcon from '../common/SkillIcon'
+import Icon from '../common/Icon'
 import { skills } from '../../data/skills'
 import { useScrollReveal } from '../../hooks/useScrollAnimation'
 
@@ -150,7 +150,7 @@ export default function Skills() {
               whileHover={{ y: -4, boxShadow: '6px 6px 0 #1A0A12' }}
             >
               <CardIcon aria-hidden="true">
-                <SkillIcon name={skill.icon} />
+                <Icon name={skill.icon} />
               </CardIcon>
               <CardName>{skill.name}</CardName>
               <CategoryPill>{skill.category}</CategoryPill>

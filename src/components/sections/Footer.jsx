@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { useTranslation } from 'react-i18next'
-import { media } from '../../styles/breakpoints'
+import Icon from '../common/Icon'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -67,15 +67,11 @@ const SocialBtn = styled.a`
   }
 `
 
-const Copyright = styled.p`
-  font-size: ${({ theme }) => theme.fontSizes.small};
-  color: rgba(255,255,255,0.4);
-`
-
 const socials = [
-  { key: 'github', href: 'https://github.com/johnkhasan', icon: 'GH' },
-  { key: 'linkedin', href: 'https://linkedin.com/in/javohirhasanov', icon: 'LI' },
-  { key: 'email', href: 'mailto:javohirdevuz@gmail.com', icon: '✉' },
+  { key: 'github', href: 'https://github.com/johnkhasan', icon: 'github' },
+  { key: 'linkedin', href: 'https://linkedin.com/in/javohirhasanov', icon: 'linkedin' },
+  { key: 'telegram', href: 'https://t.me/JavohirHasanov', icon: 'telegram' },
+  { key: 'email', href: 'mailto:javohirdevuz@gmail.com', icon: 'email' },
 ]
 
 export default function Footer() {
@@ -129,14 +125,10 @@ export default function Footer() {
               rel="noopener noreferrer"
               aria-label={t(`footer.socials.${s.key}`)}
             >
-              {s.icon}
+              <Icon name={s.icon} size={22} tone="current" />
             </SocialBtn>
           ))}
         </SocialRow>
-
-        <Copyright>
-          © {new Date().getFullYear()} Javohir. {t('footer.copyright')}
-        </Copyright>
       </Inner>
     </FooterEl>
   )

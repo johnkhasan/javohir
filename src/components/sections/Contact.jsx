@@ -2,6 +2,7 @@ import { useState } from 'react'
 import styled from 'styled-components'
 import { motion } from 'framer-motion'
 import { useTranslation } from 'react-i18next'
+import Icon from '../common/Icon'
 import { media } from '../../styles/breakpoints'
 import SectionTitle from '../common/SectionTitle'
 import Button from '../common/Button'
@@ -75,6 +76,15 @@ const SocialBtn = styled.a`
   }
 `
 
+const HoneyPot = styled.input`
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+  pointer-events: none;
+`
+
 const FormCol = styled(motion.div)`
   display: flex;
   flex-direction: column;
@@ -124,14 +134,16 @@ const StatusMsg = styled.p`
 `
 
 const socials = [
-  { key: 'github', href: 'https://github.com/johnkhasan', icon: 'GH' },
-  { key: 'linkedin', href: 'https://linkedin.com/in/javohirhasanov', icon: 'LI' },
-  { key: 'email', href: 'mailto:javohirdevuz@gmail.com', icon: '✉' },
+  { key: 'github', href: 'https://github.com/johnkhasan', icon: 'github' },
+  { key: 'linkedin', href: 'https://linkedin.com/in/javohirhasanov', icon: 'linkedin' },
+  { key: 'telegram', href: 'https://t.me/JavohirHasanov', icon: 'telegram' },
+  { key: 'email', href: 'mailto:javohirdevuz@gmail.com', icon: 'email' },
 ]
 
 export default function Contact() {
   const { t } = useTranslation()
   const [formData, setFormData] = useState({ name: '', email: '', message: '' })
+  const [website, setWebsite] = useState('') // honeypot — faqat botlar to'ldiradi
   const [status, setStatus] = useState('idle')
 
   const handleChange = (e) => {
@@ -142,14 +154,11 @@ export default function Contact() {
     e.preventDefault()
     setStatus('sending')
     try {
-      const res = await fetch("https://formspree.io/f/mjgdqvlg", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json",
-        },
-        body: JSON.stringify(formData),
-      });
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ ...formData, website }),
+      })
       if (res.ok) {
         setStatus('sent')
         setFormData({ name: '', email: '', message: '' })
@@ -178,7 +187,7 @@ export default function Contact() {
                   rel="noopener noreferrer"
                   aria-label={t(`footer.socials.${s.key}`)}
                 >
-                  {s.icon}
+                  <Icon name={s.icon} size={22} tone="current" />
                 </SocialBtn>
               ))}
             </SocialRow>
@@ -207,6 +216,15 @@ export default function Contact() {
               value={formData.email}
               onChange={handleChange}
               required
+            />
+            <HoneyPot
+              type="text"
+              name="website"
+              tabIndex={-1}
+              autoComplete="off"
+              value={website}
+              onChange={(e) => setWebsite(e.target.value)}
+              aria-hidden="true"
             />
             <Textarea
               name="message"

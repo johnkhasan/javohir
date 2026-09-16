@@ -54,10 +54,10 @@ export default {
   },
   footer: {
     tagline: "Let's build something bright.",
-    copyright: 'Built with React + Vite.',
     socials: {
       github: 'GitHub',
       linkedin: 'LinkedIn',
+      telegram: 'Telegram',
       email: 'Email',
     },
   },

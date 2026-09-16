@@ -6,7 +6,7 @@ export default defineConfig({
   plugins: [
     react(),
     sitemap({
-      hostname: 'https://justsun.io',
+      hostname: 'https://javohir.ru',
     }),
   ],
 })
