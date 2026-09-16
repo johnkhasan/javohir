@@ -6,7 +6,6 @@ import SectionTitle from '../common/SectionTitle'
 import Tag from '../common/Tag'
 import { useScrollReveal } from '../../hooks/useScrollAnimation'
 import { projects } from '../../data/projects'
-import { media } from '../../styles/breakpoints'
 
 const Section = styled.section`
   background: ${({ theme }) => theme.colors.primary};
@@ -118,7 +117,6 @@ const IconLink = styled.a`
   &:hover { border-color: ${({ theme }) => theme.colors.primary}; }
 `
 
-const allTags = ['All', ...new Set(projects.flatMap((p) => p.tags))]
 
 export default function Projects() {
   const { t, i18n } = useTranslation()
@@ -181,9 +179,11 @@ export default function Projects() {
                 ))}
               </TagList>
               <Links>
-                <IconLink href={project.link} target="_blank" rel="noopener noreferrer">
-                  {t('projects.github')}
-                </IconLink>
+                {project.link && (
+                  <IconLink href={project.link} target="_blank" rel="noopener noreferrer">
+                    {t('projects.github')}
+                  </IconLink>
+                )}
                 {project.liveLink && (
                   <IconLink href={project.liveLink} target="_blank" rel="noopener noreferrer">
                     {t('projects.live')}

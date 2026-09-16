@@ -3,6 +3,7 @@ import { motion } from 'framer-motion'
 import { useTranslation } from 'react-i18next'
 import { media } from '../../styles/breakpoints'
 import SectionTitle from '../common/SectionTitle'
+import avatarPhoto from '../../assets/javohir.jpg'
 
 const Section = styled.section`
   background: ${({ theme }) => theme.colors.cyan};
@@ -34,11 +35,8 @@ const Avatar = styled.div`
   background: ${({ theme }) => theme.colors.navy};
   border-radius: 20px;
   transform: rotate(-3deg);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 8rem;
   box-shadow: 8px 8px 0 ${({ theme }) => theme.colors.dark};
+  border: 2px solid ${({ theme }) => theme.colors.dark};
   position: relative;
   overflow: hidden;
 
@@ -46,14 +44,22 @@ const Avatar = styled.div`
     content: '';
     position: absolute;
     inset: 0;
-    background: linear-gradient(135deg, rgba(255,46,120,0.2), transparent);
+    background: linear-gradient(135deg, rgba(255,46,120,0.18), transparent 60%);
+    pointer-events: none;
   }
 
   ${media.mobile} {
     width: 240px;
-    height: 280px;
-    font-size: 6rem;
+    height: 285px;
   }
+`
+
+const AvatarImg = styled.img`
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 22%;
+  display: block;
 `
 
 const CardsWrap = styled.div`
@@ -108,8 +114,15 @@ export default function About() {
 
       <Grid>
         <IllustrationWrap>
-          <Avatar aria-label={t('about.avatarLabel')}>
-            👨‍💻
+          <Avatar>
+            <AvatarImg
+              src={avatarPhoto}
+              alt={t('about.avatarLabel')}
+              width="912"
+              height="1172"
+              loading="lazy"
+              decoding="async"
+            />
           </Avatar>
         </IllustrationWrap>
 

@@ -74,7 +74,7 @@ const Copyright = styled.p`
 
 const socials = [
   { key: 'github', href: 'https://github.com/johnkhasan', icon: 'GH' },
-  { key: 'linkedin', href: 'https://linkedin.com/in/javohir-hasanov', icon: 'LI' },
+  { key: 'linkedin', href: 'https://linkedin.com/in/javohirhasanov', icon: 'LI' },
   { key: 'email', href: 'mailto:javohirdevuz@gmail.com', icon: '✉' },
 ]
 

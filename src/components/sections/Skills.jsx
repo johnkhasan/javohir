@@ -2,8 +2,8 @@ import { useState, useMemo } from 'react'
 import styled from 'styled-components'
 import { motion } from 'framer-motion'
 import { useTranslation } from 'react-i18next'
-import { media } from '../../styles/breakpoints'
 import SectionTitle from '../common/SectionTitle'
+import SkillIcon from '../common/SkillIcon'
 import { skills } from '../../data/skills'
 import { useScrollReveal } from '../../hooks/useScrollAnimation'
 
@@ -61,8 +61,19 @@ const Card = styled(motion.article)`
 `
 
 const CardIcon = styled.span`
-  font-size: 2.5rem;
-  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  border-radius: ${({ theme }) => theme.radius.sm};
+  background: rgba(26, 10, 18, 0.04);
+  border: 1px solid rgba(26, 10, 18, 0.08);
+
+  svg {
+    width: 32px;
+    height: 32px;
+  }
 `
 
 const CardName = styled.p`
@@ -138,7 +149,9 @@ export default function Skills() {
               className="skill-card"
               whileHover={{ y: -4, boxShadow: '6px 6px 0 #1A0A12' }}
             >
-              <CardIcon aria-hidden="true">{skill.icon}</CardIcon>
+              <CardIcon aria-hidden="true">
+                <SkillIcon name={skill.icon} />
+              </CardIcon>
               <CardName>{skill.name}</CardName>
               <CategoryPill>{skill.category}</CategoryPill>
               <ProgressTrack>

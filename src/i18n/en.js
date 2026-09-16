@@ -10,19 +10,19 @@ export default {
     role: 'Frontend Developer',
     words: ['creative', 'passionate', 'fast', 'detail-oriented'],
     iam: "I'm",
-    sub: 'Frontend developer building enterprise-scale web apps with Vue 3, Nuxt 3 & React. Passionate about scalable architecture, real-time systems, and clean UI/UX.',
+    sub: 'Frontend developer building enterprise-scale web apps with Vue 3, Nuxt 3, React & Next.js. Passionate about scalable architecture, real-time systems, and clean UI/UX.',
     cta: 'View my work →',
   },
   about: {
     title: 'About me.',
-    avatarLabel: 'Developer illustration',
+    avatarLabel: 'Javohir Hasanov — Frontend Developer',
     note1: {
       date: '☀️ Now · Tashkent, Uzbekistan',
-      text: "Frontend Developer at DAS UTY (Uzbekistan Railways), building enterprise-scale platforms with Nuxt 3, Vue 3, and TypeScript. Experienced in RBAC, real-time WebSocket systems, and OpenAPI-driven architecture.",
+      text: "Frontend Developer at Uzbekistan Railways (UTY), building enterprise-scale platforms with Nuxt 3, Vue 3, Next.js and TypeScript. Experienced in RBAC, real-time WebSocket systems, and OpenAPI-driven architecture.",
     },
     note2: {
       date: '🎓 Education · Karshi State University',
-      text: "Bachelor's in Mathematics & Computer Science (2020–2025). IELTS 6.0. 3rd place at Ideathon Qarshi. Mentored 50+ students at ITPark. Code is how I think clearly.",
+      text: "Bachelor's in Mathematics & Computer Science (2020–2025), GPA 4.3/5. IELTS certified. 3rd place at Ideathon Qarshi. Mentored 50+ students at IT Park Karshi. Code is how I think clearly.",
     },
   },
   experience: {

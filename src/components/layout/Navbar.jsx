@@ -3,7 +3,6 @@ import styled from 'styled-components'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useTranslation } from 'react-i18next'
 import { media } from '../../styles/breakpoints'
-import { useTheme } from '../../context/ThemeContext'
 
 const Nav = styled.nav`
   position: fixed;
@@ -97,25 +96,6 @@ const LangToggle = styled.button`
   }
 `
 
-const DarkToggle = styled.button`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: rgba(255,255,255,0.12);
-  border: 1.5px solid rgba(255,255,255,0.25);
-  border-radius: ${({ theme }) => theme.radius.pill};
-  padding: 0.3rem 0.75rem;
-  cursor: pointer;
-  font-size: 1rem;
-  min-height: 36px;
-  min-width: 44px;
-  transition: background 0.2s, border-color 0.2s;
-  &:hover {
-    background: ${({ theme }) => theme.colors.accent};
-    border-color: ${({ theme }) => theme.colors.accent};
-  }
-`
-
 const Hamburger = styled.button`
   display: none;
   flex-direction: column;
@@ -196,7 +176,6 @@ const OverlayLang = styled(motion.button)`
 
 export default function Navbar() {
   const { t, i18n } = useTranslation()
-  const { isDark, toggleTheme } = useTheme()
   const [scrolled, setScrolled] = useState(false)
   const [open, setOpen] = useState(false)
   const [activeSection, setActiveSection] = useState('')
@@ -257,10 +236,6 @@ export default function Navbar() {
             {langLabel}
           </LangToggle>
 
-          <DarkToggle onClick={toggleTheme} aria-label="Toggle dark mode">
-            {isDark ? '☀️' : '🌙'}
-          </DarkToggle>
-
           <Hamburger
             $open={open}
             onClick={() => setOpen(!open)}
@@ -301,15 +276,6 @@ export default function Navbar() {
               onClick={toggleLang}
             >
               {langLabel}
-            </OverlayLang>
-            <OverlayLang
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: (navKeys.length + 1) * 0.08 }}
-              onClick={toggleTheme}
-              aria-label="Toggle dark mode"
-            >
-              {isDark ? '☀️' : '🌙'}
             </OverlayLang>
           </Overlay>
         )}

@@ -2,8 +2,7 @@ import { lazy, Suspense, useState } from 'react'
 import { ThemeProvider } from 'styled-components'
 import { HelmetProvider } from 'react-helmet-async'
 import { AnimatePresence } from 'framer-motion'
-import { ThemeContextProvider, useTheme } from './context/ThemeContext'
-import { theme, darkTheme } from './styles/theme'
+import { theme } from './styles/theme'
 import { GlobalStyles } from './styles/GlobalStyles'
 import Navbar from './components/layout/Navbar'
 import ScrollProgress from './components/layout/ScrollProgress'
@@ -21,11 +20,10 @@ const Contact = lazy(() => import('./components/sections/Contact'))
 const Footer = lazy(() => import('./components/sections/Footer'))
 
 function AppInner() {
-  const { isDark } = useTheme()
   const [loaded, setLoaded] = useState(false)
 
   return (
-    <ThemeProvider theme={isDark ? darkTheme : theme}>
+    <ThemeProvider theme={theme}>
       <GlobalStyles />
       <SEOHead />
       <CustomCursor />
@@ -54,9 +52,7 @@ function AppInner() {
 export default function App() {
   return (
     <HelmetProvider>
-      <ThemeContextProvider>
-        <AppInner />
-      </ThemeContextProvider>
+      <AppInner />
     </HelmetProvider>
   )
 }
