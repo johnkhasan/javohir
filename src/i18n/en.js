@@ -7,18 +7,18 @@ export default {
     skipLink: 'Skip to main content',
   },
   hero: {
-    role: 'Frontend Developer',
+    role: 'Software Engineer',
     words: ['creative', 'passionate', 'fast', 'detail-oriented'],
     iam: "I'm",
-    sub: 'Frontend developer building enterprise-scale web apps with Vue 3, Nuxt 3, React & Next.js. Passionate about scalable architecture, real-time systems, and clean UI/UX.',
+    sub: 'Software engineer building enterprise-scale web apps with Vue 3, Nuxt 3, React & Next.js. Passionate about scalable architecture, real-time systems, and clean UI/UX.',
     cta: 'View my work →',
   },
   about: {
     title: 'About me.',
-    avatarLabel: 'Javohir Hasanov — Frontend Developer',
+    avatarLabel: 'Javohir Hasanov — Software Engineer',
     note1: {
       date: '☀️ Now · Tashkent, Uzbekistan',
-      text: "Frontend Developer at Uzbekistan Railways (UTY), building enterprise-scale platforms with Nuxt 3, Vue 3, Next.js and TypeScript. Experienced in RBAC, real-time WebSocket systems, and OpenAPI-driven architecture.",
+      text: "Software Engineer at Uzbekistan Railways (UTY), building enterprise-scale platforms with Nuxt 3, Vue 3, Next.js and TypeScript. Experienced in RBAC, real-time WebSocket systems, and OpenAPI-driven architecture.",
     },
     note2: {
       date: '🎓 Education · Karshi State University',

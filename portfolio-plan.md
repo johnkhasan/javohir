@@ -262,7 +262,7 @@ export const experiences = [
     id: 1,
     year: '2024',
     company: 'Kompaniya nomi',
-    role: 'Frontend Developer',
+    role: 'Software Engineer',
     description: 'Qisqa tavsif — nima qildingiz, qanday texnologiyalar.',
     tags: ['React', 'Vue.js', 'TypeScript'],
     color: '#FF2D78',
@@ -343,7 +343,7 @@ export default function App() {
 
 ### `SEOHead.jsx` (React Helmet Async)
 - Props: `title`, `description`, `image`
-- Default: `"Your Name — Frontend Developer"`
+- Default: `"Your Name — Software Engineer"`
 - og:title, og:description, og:image, twitter:card
 - `<link rel="canonical" />`
 

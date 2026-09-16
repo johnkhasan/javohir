@@ -3,7 +3,7 @@ export const experiences = [
     id: 1,
     year: 'Dec 2025 – Present',
     company: 'Uzbekistan Railways (UTY) · Tashkent',
-    role: 'Frontend Developer',
+    role: 'Software Engineer',
     description: 'Designing and building a large-scale enterprise platform integrating contact management, device administration, call campaigns, RBAC authorization, and analytics dashboards. Engineered real-time outbound call campaign management with WebSocket-based live status tracking.',
     descriptionUz: "Katta ko'lamdagi enterprise platformani loyihalash va yaratish: kontakt boshqaruvi, qurilma administratsiyasi, chaqiruv kampaniyalari, RBAC avtorizatsiya va analitika. WebSocket asosidagi real-vaqt chaqiruv kampaniyasi monitoringini ishga tushirdim.",
     tags: ['Nuxt 3', 'Vue 3', 'Next.js', 'TypeScript', 'Pinia', 'Tailwind CSS', 'Element Plus', 'Ant Design', 'ApexCharts', 'OpenAPI'],

@@ -7,7 +7,7 @@ export default {
     skipLink: "Asosiy kontentga o'tish",
   },
   hero: {
-    role: 'Frontend Dasturchi',
+    role: 'Software Engineer',
     words: ['ijodkor', 'ishtiyoqli', 'tezkor', 'aniqlikka intiluvchi'],
     iam: 'Men',
     sub: "Vue 3, Nuxt 3, React va Next.js bilan enterprise ko'lamdagi web ilovalar yarataman. Kengaytiriladigan arxitektura, real-vaqt tizimlar va sifatli UI/UX — mening ustuvorligim.",
@@ -15,10 +15,10 @@ export default {
   },
   about: {
     title: 'Men haqimda.',
-    avatarLabel: 'Javohir Hasanov — Frontend Dasturchi',
+    avatarLabel: 'Javohir Hasanov — Software Engineer',
     note1: {
       date: "☀️ Hozir · Toshkent, O'zbekiston",
-      text: "O'zbekiston Temir Yo'llari (UTY) da Frontend Developer, Nuxt 3, Vue 3, Next.js va TypeScript bilan enterprise platformalar yarataman. RBAC, real-vaqt WebSocket va OpenAPI arxitekturasi bo'yicha tajribam bor.",
+      text: "O'zbekiston Temir Yo'llari (UTY) da Software Engineer, Nuxt 3, Vue 3, Next.js va TypeScript bilan enterprise platformalar yarataman. RBAC, real-vaqt WebSocket va OpenAPI arxitekturasi bo'yicha tajribam bor.",
     },
     note2: {
       date: "🎓 Ta'lim · Qarshi Davlat Universiteti",
