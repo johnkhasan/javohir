@@ -57,6 +57,20 @@ const Headline = styled.h1`
   margin-bottom: 1.5rem;
 `
 
+// Familiya ko'rinmaydi, lekin h1 matni to'liq ism bo'lib qoladi — qidiruv
+// tizimlari va skrin-riderlar uchun.
+const VisuallyHidden = styled.span`
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+`
+
 const WordRow = styled.div`
   display: flex;
   align-items: center;
@@ -154,7 +168,10 @@ export default function Hero() {
 
       <Content>
         <Eyebrow>{t('hero.role')}</Eyebrow>
-        <Headline>Javohir.</Headline>
+        <Headline>
+          Javohir<VisuallyHidden> Hasanov</VisuallyHidden>
+          <span aria-hidden="true">.</span>
+        </Headline>
 
         <WordRow>
           <StaticWord>{t('hero.iam')}</StaticWord>

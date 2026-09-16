@@ -1,12 +1,20 @@
 {
-  "name": "Javohir — Frontend Developer",
-  "short_name": "Javohir",
-  "description": "Portfolio of Javohir, Frontend Developer",
+  "name": "Javohir Hasanov — Frontend Developer",
+  "short_name": "Javohir Hasanov",
+  "description": "Portfolio of Javohir Hasanov (Javokhir Khasanov), Frontend Developer — Vue 3, Nuxt 3, React, Next.js, TypeScript.",
+  "lang": "en",
+  "dir": "ltr",
   "start_url": "/",
+  "scope": "/",
   "display": "standalone",
+  "orientation": "portrait-primary",
   "background_color": "#FF2D78",
   "theme_color": "#FF2D78",
+  "categories": ["portfolio", "business"],
   "icons": [
-    { "src": "/favicon.svg", "sizes": "any", "type": "image/svg+xml" }
+    { "src": "/favicon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" },
+    { "src": "/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
   ]
 }
