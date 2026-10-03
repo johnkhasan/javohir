@@ -139,29 +139,7 @@
     </script>
   </head>
   <body>
-    <!--
-      SPA fallback: bu sayt client-render, ya'ni `#root` bo'sh bo'lsa xom
-      HTML da bironta havola qolmaydi va kraulerlar JS render navbatini
-      kutishga majbur bo'ladi. Quyidagi blok — ilova ko'rsatadigan jonli
-      loyiha havolalarining o'zi, faqat statik holatda. `createRoot()`
-      mount paytida `#root` ichini butunlay almashtiradi, shuning uchun
-      foydalanuvchi buni ko'rmaydi; JS o'chiq bo'lsa esa sayt bo'sh emas.
-    -->
-    <div id="root">
-      <div id="no-js-fallback" style="background:#0D0D1A;color:#FFF8F0;font-family:'Space Grotesk',system-ui,sans-serif;min-height:100vh;padding:2rem 1.5rem;">
-        <h1 style="font-size:1.75rem;margin:0 0 .5rem;">Javohir Hasanov</h1>
-        <p style="margin:0 0 2rem;color:#FF2D78;">Software Engineer — Vue, Nuxt, React, Next.js</p>
-        <h2 style="font-size:1.125rem;margin:0 0 .75rem;">Loyihalar / Projects</h2>
-        <ul style="line-height:2;padding-left:1.25rem;margin:0;">
-          <li><a style="color:#00D4C8;" href="https://zareentravel.javohir.ru/">Zareen Travel — turizm agentligi platformasi (Next.js 16, uz/ru/en)</a></li>
-          <li><a style="color:#00D4C8;" href="https://hsbch.uz/">Hisobchi — AI bill splitter</a></li>
-          <li><a style="color:#00D4C8;" href="https://nasiya.hsbch.uz/">Nasiya — debt tracking SaaS</a></li>
-          <li><a style="color:#00D4C8;" href="https://map.javohir.ru">Kartograf — map poster studio</a></li>
-          <li><a style="color:#00D4C8;" href="https://duel.hsbch.uz/">Duel.uz — social voting</a></li>
-          <li><a style="color:#00D4C8;" href="https://azizrakhimov.uz">Aziz Rahimov — digital garden</a></li>
-        </ul>
-      </div>
-    </div>
+    <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>
