@@ -1,6 +1,30 @@
 // liveLink: null bo'lgan joylarga o'zingiz web (demo) linkini qo'yasiz.
 export const projects = [
   {
+    id: 11,
+    title: "Davradosh — Multiplayer Party Games",
+    titleUz: "Davradosh — Do'stlar Davrasida Onlayn O'yinlar",
+    description:
+      "Real-time multiplayer games for a circle of friends, no sign-up — share a link and play. Puzzle: up to 5 people assemble one jigsaw together on a PixiJS canvas with Figma-style named live cursors. Mafia: 6–12 player sport mafia with LiveKit voice chat, an automatic host, timed phases, fouls and game history; hidden roles never leave the server. Fastify + Socket.IO game server with Prisma/PostgreSQL in a pnpm + Turborepo monorepo, shared types and logic, Vitest suite, Docker Compose on a VPS.",
+    descriptionUz:
+      "Do'stlar davrasida o'ynaladigan real vaqtdagi onlayn o'yinlar, ro'yxatdan o'tmasdan — havolani ulashing va o'ynang. Puzzle: 5 kishigacha bitta puzzle'ni PixiJS canvas'da birga yig'adi, har kimning kursori Figmadagidek ismi bilan ko'rinadi. Mafia: 6–12 kishilik sport mafiasi — LiveKit ovozli chat, avtomatik boshlovchi, taymerli fazalar, fol va o'yin tarixi; yashirin rollar serverdan tashqariga chiqmaydi. Fastify + Socket.IO o'yin serveri, Prisma/PostgreSQL, pnpm + Turborepo monorepo, umumiy tip va mantiq, Vitest testlari, VPS'da Docker Compose.",
+    tags: [
+      "Next.js 16",
+      "TypeScript",
+      "PixiJS",
+      "Socket.IO",
+      "LiveKit",
+      "Fastify",
+      "PostgreSQL",
+      "WebSocket",
+    ],
+    link: null,
+    liveLink: "https://davradosh.uz/",
+    featured: true,
+    color: "#A855F7",
+    rotation: -1.8,
+  },
+  {
     id: 10,
     title: "Zareen Travel — Travel Agency Platform",
     titleUz: "Zareen Travel — Turizm Agentligi Platformasi",
