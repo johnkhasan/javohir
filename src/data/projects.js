@@ -25,30 +25,6 @@ export const projects = [
     rotation: -1.8,
   },
   {
-    id: 10,
-    title: "Zareen Travel — Travel Agency Platform",
-    titleUz: "Zareen Travel — Turizm Agentligi Platformasi",
-    description:
-      "Trilingual (uz/ru/en) site for an Uzbek travel agency: 90 statically generated pages, tour, visa and destination clusters, JSON-LD graph, hreflang and a generated sitemap. Lead pipeline runs as a server action forwarded to a self-hosted ingest service that writes to PostgreSQL and notifies Telegram. Scroll motion is pure CSS scroll-timeline (0 kB JS) and the WebGL globe loads only on approach; a CI budget keeps critical JS under 30 kB gz.",
-    descriptionUz:
-      "O'zbek turizm agentligi uchun uch tilli (uz/ru/en) sayt: 90 ta statik generatsiya qilingan sahifa, tur, viza va yo'nalish klasterlari, JSON-LD grafi, hreflang va generatsiya qilinadigan sitemap. Ariza oqimi server action orqali o'z serverdagi ingest xizmatiga uzatiladi — u PostgreSQL ga yozadi va Telegram ga xabar beradi. Skroll animatsiyalari sof CSS scroll-timeline (0 kB JS), WebGL globus esa faqat ekranga yaqinlashganda yuklanadi; CI byudjeti kritik JS ni 30 kB gz dan pastda ushlab turadi.",
-    tags: [
-      "Next.js 16",
-      "TypeScript",
-      "SSG",
-      "i18n",
-      "SEO",
-      "PostgreSQL",
-      "Telegram Bot",
-      "three.js",
-    ],
-    link: null,
-    liveLink: "https://zareentravel.javohir.ru/",
-    featured: true,
-    color: "#FF7810",
-    rotation: 1.7,
-  },
-  {
     id: 1,
     title: "Enterprise Platform · DAS UTY",
     titleUz: "Enterprise Platforma · DAS UTY",
